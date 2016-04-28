@@ -13,6 +13,7 @@
 		<input id="submit" type="button" value="提交" />
 	</body>
 	<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+	<script type="text/javascript" src="js/hQutils.js"></script>
 	<script>
 		$("#submit").click(function(){
 			var username = $("#username").val();
@@ -22,29 +23,8 @@
 					"username":username,
 					"password":password
 			};
-			$.ajax({
-				"url":"loginServlet?num ="+Math.random(),//发送请求的地址
-				"type":"POST",//请求方式（post或get）默认为get
-				"timeout":"1000*60",//要求为Number类型的参数，设置请求超时时间（毫秒）
-				"async":"true",//是否异步请求，默认为true
-				"cache":"true",//是否加载浏览器缓存，默认为true
-				"data":json,//请求入参
-				"dataType":"JSON",//参数类型
-				"success":function(data){
-					var results = data.results;
-					if(!results.errorInfo){
-						console.log(results.id);
-						console.log(results.name);
-						console.log(results.pass);
-						console.log(results.info);
-						alert("请求成功");
-					}else{
-						alert(results.errorInfo);
-					}
-				},//请求成功后调用的回调函数
-				"error":function(){
-					alert("请求失败");
-				}//请求失败时被调用的函数
+			QUtils.Qget(json, function(data){
+				console.log(data.results);
 			});
 		});
 	</script>
