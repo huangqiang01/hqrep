@@ -3,20 +3,34 @@
   <display-name>MyApp</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
-    <servlet-name>LoginServlet</servlet-name>
-    <servlet-class>com.myapp.servlet.LoginServlet</servlet-class>
+    <servlet-name>ReceiveServlet</servlet-name>
+    <servlet-class>com.myapp.servlet.ReceiveServlet</servlet-class>
   </servlet>
   
   
   <servlet-mapping>
-    <servlet-name>LoginServlet</servlet-name>
-    <url-pattern>/loginServlet</url-pattern>
+    <servlet-name>ReceiveServlet</servlet-name>
+    <url-pattern>/receiveServlet</url-pattern>
   </servlet-mapping>
+  
+  
+  <!--将采用的字符编码配置成应用初始化参数而不是过滤器私有的初始化参数是因为在JSP和其他地方也可能需要使用-->  
+    <context-param>  
+            <param-name>charset</param-name>  
+            <param-value>UTF-8</param-value>  
+    </context-param>  
+  
+    <filter>  
+        <filter-name>ContentTypeFilter</filter-name>  
+        <filter-class>com.myapp.qutils.ContentTypeFilter</filter-class>  
+    </filter>  
+  
+    <filter-mapping>  
+        <filter-name>ContentTypeFilter</filter-name>  
+        <url-pattern>/*</url-pattern>  
+    </filter-mapping>  
+  
+  
 </web-app>

@@ -15,12 +15,12 @@ if (typeof jQuery === "undefined"){
 		
 		// ajax请求参数
 		ajaxs = {
-			url: "loginServlet?num=" + Math.random(),
+			url: "receiveServlet?num=" + Math.random(),
 			timeout: 1000 * 60,
 			async: true,
 			dataType: "json",
-//			beforeSend: function(){},
-//			complete: function(){},
+			beforeSend: null,
+			complete: null,
 //			success: function(){},
 //			error: function(){},
 //			dataFilter: function(data, "json"){}

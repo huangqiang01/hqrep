@@ -24,7 +24,12 @@
 					"password":password
 			};
 			QUtils.Qget(json, function(data){
-				console.log(data.results);
+				if (data.error_no === "0"){
+					var results = data.results;
+					alert(results[0].info);
+				} else {
+					alert(data.error_info);
+				}
 			});
 		});
 	</script>

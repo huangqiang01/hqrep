@@ -1,7 +1,11 @@
 package com.myapp.service.impl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import net.sf.json.JSONObject;
 
 import com.myapp.bean.Userinfo;
 
@@ -12,11 +16,11 @@ import com.myapp.bean.Userinfo;
 public class GetDataImpl {
 
 	//模拟     获取 数据
-	public Map<String, String> getUserinfo(String username,String password){
-		
+	public List getUserinfo(String username,String password){
+		List list = new ArrayList();
 		Map<String,String> map = new HashMap<String,String>();
 		//模拟获取数据库数据
-		if(username.equals("zhangsan")&&password.equals("111")){
+		if(username.equals("张三")&&password.equals("111")){
 			Userinfo userinfo = new Userinfo();
 			userinfo.setUserid("1");
 			userinfo.setUsername("zhangsan");
@@ -41,6 +45,10 @@ public class GetDataImpl {
 		}else{
 			map.put("errorInfo", "用户名或密码错误");
 		}
-		return map;
+		list.add(map);
+		list.add(map);
+		list.add(map);
+		list.add(map);
+		return list;
 	}
 }
