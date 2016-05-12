@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.jiang.bean.TestBean;
 import com.jiang.input.check.CheckInput;
 import com.jiang.qutils.QException;
 import com.jiang.qutils.QOutput;
@@ -25,17 +26,22 @@ public class Function extends QOutput {
 	// 创建业务层
 	GetDataImpl getDataImpl = new GetDataImpl();
 	
+	TestBean test = new TestBean();
+	
+	
 	/**
 	 * @throws QException 
 	 * @see HttpServlet#userLogin(HttpServletRequest request, HttpServletResponse response)
 	 */
-	public void func1000(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, QException {
+	public void func1000(HttpServletRequest request) throws ServletException, IOException, QException {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		// 检查入参是否合法
-		checkInput.input1000(username, password, response);
+		
+		System.out.println("++" + test.getResponse());
+		checkInput.input1000(username, password);
 		
 		list = getDataImpl.getUserinfo(username, password);
-		this.outPut(list, response);
+		this.outPut(list);
 	}
 }

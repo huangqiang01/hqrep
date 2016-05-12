@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Q_jiang接口test</title>
+	</head>
+	<body>
+		<div>
+			<span id="name"></span>
+			<span id="info"></span>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+	<script type="text/javascript" src="js/Qutils.js"></script>
+	<script>
+		var name = Qutils.getParam("username"),
+			pass = Qutils.getParam("password");
+		var json = {
+			"funNo": "1000",
+			"username": name,
+			"password": pass
+		};
+		Qutils.Qget(json, function(data){
+			var json = {
+					"funNo": "1000",
+					"username": name + "1",
+					"password": pass
+				};
+			Qutils.Qget(json, function(data){
+				if (data.error_no === "0"){
+					var results = data.results,
+						itme = results[0];
+					$("#name").html(itme.name);
+					$("#info").html(itme.info);
+				} else {
+					alert(data.error_info);
+				}
+			});
+			if (data.error_no === "0"){
+				var results = data.results,
+					itme = results[0];
+				$("#name").html(itme.name);
+				$("#info").html(itme.info);
+			} else {
+				alert(data.error_info);
+			}
+		});
+	</script>
+
+</html>

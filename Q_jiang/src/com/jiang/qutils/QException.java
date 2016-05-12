@@ -9,8 +9,8 @@ public class QException extends Exception {
 	// 异常结果输出
 	QOutput out = new QOutput();
 	
-	public QException(String no, String msg, HttpServletResponse response) throws IOException{
+	public QException(String no, String msg) throws IOException{
 		super(msg);
-		out.outPut(no, msg, response);
+		out.outPut(no, msg);
 	}
 }

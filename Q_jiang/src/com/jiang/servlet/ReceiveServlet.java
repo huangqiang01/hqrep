@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.jiang.bean.TestBean;
 import com.jiang.function.Function;
 import com.jiang.qutils.QException;
 import com.jiang.qutils.QOutput;
@@ -22,6 +23,9 @@ import com.jiang.qutils.QOutput;
 public class ReceiveServlet extends QOutput {
 
 	private static final long serialVersionUID = 778544136834654147L;
+	
+	
+	TestBean test = new TestBean();
 	
 	// ¹¦ÄÜ²ã
 	Function func = new Function();
@@ -39,17 +43,20 @@ public class ReceiveServlet extends QOutput {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		// 
+		test.setResponse(response);
+		
 		int funNo = Integer.parseInt(request.getParameter("funNo"));
 		try {
 			switch(funNo){
 				case 1000:
-					func.func1000(request, response);
+					func.func1000(request);
 					break;
 				case 2000:
 					
 					break;
 				default:
-					this.outPut("-999", "", response);
+					this.outPut("-999", "");
 			}
 		} catch (QException e) {
 			// TODO Auto-generated catch block

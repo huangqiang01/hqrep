@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.jiang.bean.Userinfo;
+import com.jiang.qutils.QException;
 
 /**
  * 模拟     此处进行业务的处理层
@@ -41,11 +42,9 @@ public class GetDataImpl {
 			map.put("pass", userinfo.getPassword());
 			map.put("info", userinfo.getInfo());
 		}else{
+//			throw new QException("-1", "用户名不能为空", response);
 			map.put("errorInfo", "用户名或密码错误");
 		}
-		list.add(map);
-		list.add(map);
-		list.add(map);
 		list.add(map);
 		return list;
 	}

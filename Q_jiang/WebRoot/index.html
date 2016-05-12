@@ -16,21 +16,13 @@
 	<script type="text/javascript" src="js/Qutils.js"></script>
 	<script>
 		$("#submit").click(function(){
-			var username = $("#username").val();
-			var password = $("#password").val();
-			var json = {
-					"funNo": "1000",
-					"username": username,
-					"password": password
-			};
-			Qutils.Qget(json, function(data){
-				if (data.error_no === "0"){
-					var results = data.results;
-					alert(results[0].info);
-				} else {
-					alert(data.error_info);
-				}
-			});
+			var username = $("#username").val(),
+				password = $("#password").val();
+				param = {
+						"username": username,
+						"password": password
+				};
+			Qutils.goPage("index1", param);
 		});
 	</script>
 
