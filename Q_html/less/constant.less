@@ -6,6 +6,7 @@
 @bitSize: 0.16rem; // 颜色
 @fff: #FFF;
 @000: #000;
+@666: #666;
 @ccc: #CCC;
 @ddd: #DDD;
 @bodybg: #f3f3f3; // 丘比龙基本配色
@@ -54,6 +55,13 @@
     -ms-box-shadow: @w @h @h/2 @color;
     -o-box-shadow: @w @h @h/2 @color;
     box-shadow: @w @h @h/2 @color;
+}
+.shadow4(@r: 15px, @color: @666){
+    -webkit-box-shadow: 0 0 @r @color;
+    -moz-box-shadow: 0 0 @r @color;
+    -ms-box-shadow: 0 0 @r @color;
+    -o-box-shadow: 0 0 @r @color;
+    box-shadow: 0 0 @r @color;
 }
 .shadowText(@w: 1px, @h: 1px, @color: @bodybg) {
     -webkit-text-shadow: @w @h @h/2 @color;
