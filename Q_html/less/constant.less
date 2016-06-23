@@ -1,0 +1,105 @@
+@charset "UTF-8"; // **************此文件定义一些常量和一些公共方法*******************
+// 大小
+@allSize: 100px;
+@baseSize: 0.12rem;
+@commonSize: 0.14rem;
+@bitSize: 0.16rem; // 颜色
+@fff: #FFF;
+@000: #000;
+@ccc: #CCC;
+@ddd: #DDD;
+@bodybg: #f3f3f3; // 丘比龙基本配色
+@yellow: #ffcc00;
+@lightYellow: #ffff99;
+@lightRed: #ff6699;
+@orangeRed: #ff6600;
+@lightOR: lighten(@orangeRed, 20%); // ****************常用的属性******************************
+// 最大最小总宽度
+.allXNW(@xw: 1240px, @nw: 1024px) {
+    max-width: @xw;
+    min-width: @nw;
+    margin: 0 auto;
+}
+// 长宽
+.wH(@w: 20px, @h: 20px) {
+    width: @w;
+    height: @h;
+}
+.wH(line, @w: 20px, @h: 20px) {
+    width: @w;
+    height: @h;
+    line-height: @h;
+}
+.wH(center, @w: 20px, @h: 20px) {
+    width: @w;
+    height: @h;
+    margin: 0 auto;
+}
+// 圆角
+.radius(@r: 5px) {
+    -webkit-border-radius: @r;
+    -moz-border-radius: @r;
+    -ms-border-radius: @r;
+    -o-border-radius: @r;
+    border-radius: @r;
+}
+.bg(@url, @w: 100%, @h: 100%) {
+    background: url(@url) center no-repeat;
+    background-size: @w @h;
+}
+// 阴影
+.shadow(@w: 5px, @h: 5px, @color: @ccc) {
+    -webkit-box-shadow: @w @h @h/2 @color;
+    -moz-box-shadow: @w @h @h/2 @color;
+    -ms-box-shadow: @w @h @h/2 @color;
+    -o-box-shadow: @w @h @h/2 @color;
+    box-shadow: @w @h @h/2 @color;
+}
+.shadowText(@w: 1px, @h: 1px, @color: @bodybg) {
+    -webkit-text-shadow: @w @h @h/2 @color;
+    -moz-text-shadow: @w @h @h/2 @color;
+    -ms-text-shadow: @w @h @h/2 @color;
+    -o-text-shadow: @w @h @h/2 @color;
+    text-shadow: @w @h @h/2 @color;
+}
+// 移动
+.translate(@x: 0, @y: 0) {
+    -webkit-transform: translate(@x,@y);
+    -moz-transform: translate(@x,@y);
+    -ms-transform: translate(@x,@y);
+    -o-transform: translate(@x,@y);
+    transform: translate(@x,@y);
+}
+.tran(@tran) {
+    -webkit-transition: @tran;
+    -moz-transition: @tran;
+    -ms-transition: @tran;
+    -o-transition: @tran;
+    transition: @tran;
+}
+// 动画
+.animat(...) {
+    -webkit-animation: @arguments;
+    -moz-animation: @arguments;
+    -ms-animation: @arguments;
+    -o-animation: @arguments;
+    animation: @arguments;
+}
+.animatKey(@name) {
+    @-webkit-keyframes @name {};
+    @-moz-keyframes @name {};
+    @-ms-keyframes @name {};
+    @-o-keyframes @name {};
+    @keyframes @name {};
+}
+// 渐变
+.gradient(@startcolor: @orangeRed, @stopcolor: @lightOR) {
+    background: @orangeRed;
+    background: -webkit-gradient(linear, left top, left bottom, color-start(0.05, @startcolor), color-stop(1, @stopcolor));
+    background: -moz-linear-gradient(top, @startcolor 5%, @stopcolor 100%);
+    background: -ms-linear-gradient(top, @startcolor 5%, @stopcolor 100%);
+    background: -o-linear-gradient(top, @startcolor 5%, @stopcolor 100%);
+    background: linear-gradient(to bottom, @startcolor 5%, @stopcolor 100%);
+    background: -webkit-linear-gradient(top, @startcolor 5%, @stopcolor 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=@startcolor, endColorstr=@stopcolor,GradientType=0);
+}

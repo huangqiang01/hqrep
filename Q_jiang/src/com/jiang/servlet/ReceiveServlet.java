@@ -7,9 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jiang.bean.TestBean;
 import com.jiang.function.Function;
-import com.jiang.qutils.QException;
 import com.jiang.qutils.QOutput;
 
 /**
@@ -20,12 +18,12 @@ import com.jiang.qutils.QOutput;
  * @since
  */
 
-public class ReceiveServlet extends QOutput {
+public class ReceiveServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 778544136834654147L;
 	
-	
-	TestBean test = new TestBean();
+	// 输出错误，并保存response
+	QOutput qput = new QOutput();
 	
 	// 功能层
 	Function func = new Function();
@@ -43,8 +41,8 @@ public class ReceiveServlet extends QOutput {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		// 
-		test.setResponse(response);
+		// 保存 response
+		qput.setResponse(response);
 		
 		int funNo = Integer.parseInt(request.getParameter("funNo"));
 		try {
@@ -56,10 +54,10 @@ public class ReceiveServlet extends QOutput {
 					
 					break;
 				default:
-					this.outPut("-999", "");
+					qput.outPut("-999", "无此功能号");
 			}
-		} catch (QException e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {
+			qput.outPut("-222", "系统调用失败");
 			e.printStackTrace();
 		}
 	}

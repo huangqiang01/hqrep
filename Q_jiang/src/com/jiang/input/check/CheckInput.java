@@ -9,8 +9,6 @@ import com.jiang.qutils.QException;
 
 public class CheckInput {
 	
-	private static final long serialVersionUID = -1744006652870132392L;
-	
 	public void input1000(String name, String password) throws IOException, QException{
 		if (name.equals("")){
 			throw new QException("-1", "用户名不能为空");

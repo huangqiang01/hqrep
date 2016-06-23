@@ -22,30 +22,14 @@
 			"password": pass
 		};
 		Qutils.Qget(json, function(data){
-			var json = {
-					"funNo": "1000",
-					"username": name + "1",
-					"password": pass
-				};
-			Qutils.Qget(json, function(data){
-				if (data.error_no === "0"){
-					var results = data.results,
-						itme = results[0];
-					$("#name").html(itme.name);
-					$("#info").html(itme.info);
-				} else {
-					alert(data.error_info);
-				}
-			});
+			console.log(1);
 			if (data.error_no === "0"){
 				var results = data.results,
 					itme = results[0];
-				$("#name").html(itme.name);
-				$("#info").html(itme.info);
+				
 			} else {
 				alert(data.error_info);
 			}
 		});
 	</script>
-
 </html>

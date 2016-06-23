@@ -1,0 +1,94 @@
+@charset "utf-8";
+html,
+body {
+  background: #f3f3f3;
+  font-size: 100px;
+}
+.header {
+  width: 100%;
+  max-width: 1240px;
+  min-width: 1024px;
+  margin: 0 auto;
+  margin-top: 30px;
+  background: #cec8c8;
+}
+.header ul {
+  float: right;
+  margin: 15px 40px 0 0;
+}
+.header ul li {
+  position: relative;
+  float: left;
+  margin: 0 10px 18px;
+  width: 70px;
+  height: 90px;
+  text-align: center;
+  overflow: hidden;
+}
+.header ul li span {
+  position: absolute;
+  display: inline-block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1%;
+  background: url("../img/1.gif") center no-repeat;
+  background-size: 100% 100%;
+}
+.header ul li a {
+  position: absolute;
+  display: block;
+  left: 0;
+  bottom: 0;
+  color: #fff;
+  font-size: 0.14rem;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  background: #ff6600;
+  background: -webkit-gradient(linear, left top, left bottom, color-start(0.05, #ff6600), color-stop(1, #ffa366));
+  background: -moz-linear-gradient(top, #ff6600 5%, #ffa366 100%);
+  background: -ms-linear-gradient(top, #ff6600 5%, #ffa366 100%);
+  background: -o-linear-gradient(top, #ff6600 5%, #ffa366 100%);
+  background: linear-gradient(to bottom, #ff6600 5%, #ffa366 100%);
+  background: -webkit-linear-gradient(top, #ff6600 5%, #ffa366 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ff6600, endColorstr=#ffa366, GradientType=0);
+  -webkit-text-shadow: 1px 1px 0.5px #f3f3f3;
+  -moz-text-shadow: 1px 1px 0.5px #f3f3f3;
+  -ms-text-shadow: 1px 1px 0.5px #f3f3f3;
+  -o-text-shadow: 1px 1px 0.5px #f3f3f3;
+  text-shadow: 1px 1px 0.5px #f3f3f3;
+  z-index: 100;
+}
+.header ul li a:hover span {
+  -webkit-animation: menuBar 1000s;
+  -moz-animation: menuBar 1000s;
+  -ms-animation: menuBar 1000s;
+  -o-animation: menuBar 1000s;
+  animation: menuBar 1000s;
+}
+.header ul li a:active {
+  background: #ff6600;
+  background: -webkit-gradient(linear, left top, left bottom, color-start(0.05, #ffa366), color-stop(1, #ff6600));
+  background: -moz-linear-gradient(top, #ffa366 5%, #ff6600 100%);
+  background: -ms-linear-gradient(top, #ffa366 5%, #ff6600 100%);
+  background: -o-linear-gradient(top, #ffa366 5%, #ff6600 100%);
+  background: linear-gradient(to bottom, #ffa366 5%, #ff6600 100%);
+  background: -webkit-linear-gradient(top, #ffa366 5%, #ff6600 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffa366, endColorstr=#ff6600, GradientType=0);
+}
+@-webkit-keyframes menuBar {0%{top: 0;left: 20px;width: 0;height: 0;}.05% {top: -51px;left: 0;width: 100%;height: 170%;background: url('../img/1.gif') center no-repeat;background-size: 100% 100%;}100% {top: -51px;left: 0;width: 100%;height: 170%;background: url('../img/1.gif') center no-repeat;background-size: 100% 100%;}} {
+  
+}
+@-moz-keyframes menuBar {0%{top: 0;left: 20px;width: 0;height: 0;}.05% {top: -51px;left: 0;width: 100%;height: 170%;background: url('../img/1.gif') center no-repeat;background-size: 100% 100%;}100% {top: -51px;left: 0;width: 100%;height: 170%;background: url('../img/1.gif') center no-repeat;background-size: 100% 100%;}} {
+  
+}
+@-ms-keyframes menuBar {0%{top: 0;left: 20px;width: 0;height: 0;}.05% {top: -51px;left: 0;width: 100%;height: 170%;background: url('../img/1.gif') center no-repeat;background-size: 100% 100%;}100% {top: -51px;left: 0;width: 100%;height: 170%;background: url('../img/1.gif') center no-repeat;background-size: 100% 100%;}} {
+  
+}
+@-o-keyframes menuBar {0%{top: 0;left: 20px;width: 0;height: 0;}.05% {top: -51px;left: 0;width: 100%;height: 170%;background: url('../img/1.gif') center no-repeat;background-size: 100% 100%;}100% {top: -51px;left: 0;width: 100%;height: 170%;background: url('../img/1.gif') center no-repeat;background-size: 100% 100%;}} {
+  
+}
+@keyframes menuBar {0%{top: 0;left: 20px;width: 0;height: 0;}.05% {top: -51px;left: 0;width: 100%;height: 170%;background: url('../img/1.gif') center no-repeat;background-size: 100% 100%;}100% {top: -51px;left: 0;width: 100%;height: 170%;background: url('../img/1.gif') center no-repeat;background-size: 100% 100%;}} {
+  
+}

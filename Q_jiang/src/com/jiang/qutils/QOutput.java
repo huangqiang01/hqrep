@@ -2,15 +2,9 @@ package com.jiang.qutils;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletResponse;
-
-import com.jiang.bean.TestBean;
-
-import net.sf.json.JSONObject;
+import org.codehaus.jackson.map.ObjectMapper;
 
 /**
  * 
@@ -20,37 +14,38 @@ import net.sf.json.JSONObject;
  * @since
  */
 
-public class QOutput extends HttpServlet {
+public class QOutput extends KeepResponse {
 	
-	private static final long serialVersionUID = 268973572484397412L;
+	OutResults or = new OutResults();
 	
-	TestBean test = new TestBean();
-	
-	private static final List<JSONObject> listEmpty = new ArrayList<JSONObject>();
+	ObjectMapper om = new ObjectMapper();
 	
 	/*
 	 * 异常处理工具
 	 */
-	public void outPut(String no, String msg, List<JSONObject> list) throws IOException{
-		this.writerOut(no, msg, list);
+	public void outPut(String no, String msg, List list) throws IOException{
+		PrintWriter pw = this.getResponse().getWriter();
+		or.setError_no(no);
+		or.setError_info(msg);
+		or.setResults(list);
+		om.writeValue(pw, or);
+		pw.flush();
+		pw.close();
 	}
 	
-	public void outPut(List<JSONObject> list) throws IOException{
-		this.writerOut("0", "调用成功", list);
+	public void outPut(List list) throws IOException{
+		PrintWriter pw = this.getResponse().getWriter();
+		or.setResults(list);
+		om.writeValue(pw, or);
+		pw.flush();
+		pw.close();
 	}
 	
 	public void outPut(String no, String msg) throws IOException{
-		this.writerOut(no, msg, listEmpty);
-	}
-	
-	public void writerOut(String no, String msg, List<JSONObject> listOut) throws IOException{
-		JSONObject jsonObj = JSONObject.fromObject("{}");
-		HttpServletResponse response = test.getResponse();
-		PrintWriter pw = response.getWriter();
-		jsonObj.put("error_no", no);
-		jsonObj.put("error_info", msg);
-		jsonObj.put("results", listOut);
-		pw.print(jsonObj);
+		PrintWriter pw = this.getResponse().getWriter();
+		or.setError_no(no);
+		or.setError_info(msg);
+		om.writeValue(pw, or);
 		pw.flush();
 		pw.close();
 	}
