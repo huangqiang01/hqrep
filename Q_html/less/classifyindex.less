@@ -75,23 +75,24 @@ body {
         }
     }
     .active-show {
+        position: relative;
         z-index: 100;
-        top: 0;
-        left: 0;
         .wH(100%, 100%);
         li {
             position: absolute;
             opacity: 0;
             .wH(line, 100%, @barHeight);
             .radius(@barHeight);
+            overflow: hidden;
             a {
                 display: block;
                 .wH(100%, 100%);
                 color: @fff;
+                
             }
             &#sonbar:hover {
-                background: @666 * 0.5;
                 &>a {
+                    background: @666 * 0.5;
                     color: @orangeRed;
                 }
             }
@@ -142,9 +143,7 @@ body {
         a {
             display: inline-block;
             .wH(line, 70%, @barHeight * .7);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            .overShowEl();
             color: @orangeRed;
             font-weight: 900;
             &:hover {
