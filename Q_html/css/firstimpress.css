@@ -8,13 +8,15 @@ body {
   max-width: 1240px;
   min-width: 1024px;
   margin: 0 auto;
+  margin-bottom: 30px;
 }
 .page > p {
-  padding: 20px 0 10px;
+  padding: 20px 0 20px;
   font-size: 0.16rem;
   text-align: center;
 }
 .page .intro {
+  padding: 10px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -28,11 +30,172 @@ body {
 }
 .side-bar {
   float: left;
-  width: 500px;
+  font-size: 0.14rem;
+  width: 440px;
+  background: #dddddd;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  padding: 30px 20px;
+}
+.side-bar span {
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  text-indent: 0.2rem;
+  font-size: 0.16rem;
+  border: 1px solid #cccccc;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  background: #ffffff;
+}
+.side-bar > div {
+  font-size: 0.16rem;
+  padding: 26px 0;
+  text-align: center;
+}
+.side-bar > div a {
+  display: inline-block;
+  margin: 0 30px;
+  color: #666666;
+  width: 130px;
+  height: 40px;
+  line-height: 40px;
+  background: #ffffff;
+  border: 1px solid #CCCCCC;
+  -webkit-text-shadow: 1px 1px 0.5px #f3f3f3;
+  -moz-text-shadow: 1px 1px 0.5px #f3f3f3;
+  -ms-text-shadow: 1px 1px 0.5px #f3f3f3;
+  -o-text-shadow: 1px 1px 0.5px #f3f3f3;
+  text-shadow: 1px 1px 0.5px #f3f3f3;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+.side-bar > div a:hover {
+  background: #ffa366;
+  color: #ffffff;
+}
+.side-bar > div a.active {
+  color: #ffffff;
+  background: #ffa366;
+  -webkit-box-shadow: 5px 5px 2.5px #cccccc;
+  -moz-box-shadow: 5px 5px 2.5px #cccccc;
+  -ms-box-shadow: 5px 5px 2.5px #cccccc;
+  -o-box-shadow: 5px 5px 2.5px #cccccc;
+  box-shadow: 5px 5px 2.5px #cccccc;
+}
+.side-bar > div a.active:hover {
+  background: #ffc47a;
+}
+.side-bar textarea {
+  font-size: 0.14rem;
+  text-indent: 0.02rem;
+  word-spacing: 0.01rem;
+  letter-spacing: 0.01rem;
+  display: block;
+  width: 100%;
+  height: 150px;
+  border: none;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+.side-bar > p {
+  margin-top: 3px;
+  font-size: 0.12rem;
+  color: #666666;
+  line-height: 20px;
+}
+.side-bar > a {
+  display: block;
+  margin-top: 20px;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #808080;
+  background: #cccccc;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+.side-bar > a.active {
+  color: #ffffff;
+  background: #ffa366;
+  -webkit-box-shadow: 5px 5px 2.5px #cccccc;
+  -moz-box-shadow: 5px 5px 2.5px #cccccc;
+  -ms-box-shadow: 5px 5px 2.5px #cccccc;
+  -o-box-shadow: 5px 5px 2.5px #cccccc;
+  box-shadow: 5px 5px 2.5px #cccccc;
+}
+.side-bar > a.active:hover {
+  background: #ffc47a;
+}
+.side-bar > a.active:active {
+  -webkit-box-shadow: 0 0 0 #ffa366;
+  -moz-box-shadow: 0 0 0 #ffa366;
+  -ms-box-shadow: 0 0 0 #ffa366;
+  -o-box-shadow: 0 0 0 #ffa366;
+  box-shadow: 0 0 0 #ffa366;
 }
 .intro-content {
-  margin: 0 0 20px 501px;
+  margin-left: 490px;
   font-size: 0.14rem;
   padding: 25px;
   line-height: 25px;
+}
+.intro-content .evaluate {
+  padding: 10px;
+  margin: 0 0 10px;
+  background: #fffcfc;
+  -webkit-box-shadow: 0 0 inset #666666;
+  -moz-box-shadow: 0 0 inset #666666;
+  -ms-box-shadow: 0 0 inset #666666;
+  -o-box-shadow: 0 0 inset #666666;
+  box-shadow: 0 0 inset #666666;
+  -webkit-box-shadow: inset 0 0 15px #666666;
+  -moz-box-shadow: inset 0 0 15px #666666;
+  -ms-box-shadow: inset 0 0 15px #666666;
+  -o-box-shadow: inset 0 0 15px #666666;
+  box-shadow: inset 0 0 15px #666666;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+.intro-content .evaluate .name {
+  position: relative;
+  display: block;
+  height: 30px;
+  line-height: 30px;
+  margin-left: 10px;
+  text-indent: 0.05rem;
+  border-bottom: 1px solid #ff6600;
+}
+.intro-content .evaluate .name:before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 20px;
+  left: -5px;
+  width: 5px;
+  height: 35px;
+  background: #ff6600;
+}
+.intro-content .evaluate .neirong {
+  text-indent: 0.06rem;
+  margin-left: 10px;
 }

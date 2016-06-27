@@ -63,6 +63,13 @@
     -o-box-shadow: 0 0 @r @color;
     box-shadow: 0 0 @r @color;
 }
+.shadow4(inset, @r: 15px, @color: @666){
+    -webkit-box-shadow: inset 0 0 @r @color;
+    -moz-box-shadow: inset 0 0 @r @color;
+    -ms-box-shadow: inset 0 0 @r @color;
+    -o-box-shadow: inset 0 0 @r @color;
+    box-shadow: inset 0 0 @r @color;
+}
 .shadowText(@w: 1px, @h: 1px, @color: @bodybg) {
     -webkit-text-shadow: @w @h @h/2 @color;
     -moz-text-shadow: @w @h @h/2 @color;
@@ -85,6 +92,34 @@
     -o-transition: @tran;
     transition: @tran;
 }
+// 旋转
+.rotate(@x) {
+    -webkit-transform: rotate(@x);
+    -moz-transform: rotate(@x);
+    -ms-transform: rotate(@x);
+    -o-transform: rotate(@x);
+    transform: rotate(@x);
+}
+.rotateO(@d: 0, @ox: 50%, @oy: 50%) {
+    -webkit-transform: rotate(@d);
+    -webkit-transform-origin: @ox @oy;
+    -moz-transform: rotate(@d);
+    -moz-transform-origin: @ox @oy;
+    -ms-transform: rotate(@d);
+    -ms-transform-origin: @ox @oy;
+    -o-transform: rotate(@d);
+    -o-transform-origin: @ox @oy;
+    transform: rotate(@d);
+    transform-origin: @ox @oy;
+}
+.rotatey(@y) {
+    -webkit-transform: rotateY(@y);
+    -moz-transform: rotateY(@y);
+    -ms-transform: rotateY(@y);
+    -o-transform: rotateY(@y);
+    transform: rotateY(@y);
+}
+
 // 动画
 .animat(...) {
     -webkit-animation: @arguments;
