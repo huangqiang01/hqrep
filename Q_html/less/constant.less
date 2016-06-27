@@ -3,7 +3,9 @@
 @allSize: 100px;
 @baseSize: 0.12rem;
 @commonSize: 0.14rem;
-@bitSize: 0.16rem; // 颜色
+@bitSize: 0.16rem;
+@barHeight: 50px;
+// 颜色
 @fff: #FFF;
 @000: #000;
 @666: #666;
@@ -16,7 +18,8 @@
 @orangeRed: #ff6600;
 @lightOR: lighten(@orangeRed, 20%); // ****************常用的属性******************************
 // 最大最小总宽度
-.allXNW(@xw: 1240px, @nw: 1024px) {
+.allXNW(@wid: 100%, @xw: 1240px, @nw: 1024px) {
+    width: @wid;
     max-width: @xw;
     min-width: @nw;
     margin: 0 auto;
@@ -43,6 +46,13 @@
     -ms-border-radius: @r;
     -o-border-radius: @r;
     border-radius: @r;
+}
+.radius4(@u: 5px, @l: 5px, @b: 5px, @r: 5px) {
+    -webkit-border-radius: @arguments;
+    -moz-border-radius: @arguments;
+    -ms-border-radius: @arguments;
+    -o-border-radius: @arguments;
+    border-radius: @arguments;
 }
 .bg(@url, @w: 100%, @h: 100%) {
     background: url(@url) center no-repeat;

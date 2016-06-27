@@ -5,6 +5,7 @@ body {
   font-size: 100px;
 }
 .page {
+  width: 100%;
   max-width: 1240px;
   min-width: 1024px;
   margin: 0 auto;
