@@ -38,14 +38,17 @@ body {
                 font-size: @commonSize;
                 .wH(line, 100%, 30px);
 //              .gradient();
-                .shadowText();
+                .shadowText(3px, 3px, @000);
                 .radius4(70%, 10px, 0, 0);
                 .shadow4(inset, 20px, @lightOR);
                 border: 2px solid @lightOR;
                 background: @orangeRed;
                 z-index: 100;
-                &:hover span {
-                    .animat(menuBar 1000s);
+                &:hover{
+                    background: @lightOR;
+                    span {
+                        .animat(menuBar 1000s ease-out 200);
+                    }
                 }
                 &:active {
                     .gradient(@lightOR, @orangeRed);
