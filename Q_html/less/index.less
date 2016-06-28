@@ -10,25 +10,24 @@ body {
     .allXNW();
 }
 .header {
-    margin-top: 30px;
-    background: #cec8c8;
+//  margin-top: 30px;
+//  background: #cec8c8;
     ul {
         float: right;
-        margin: 15px 40px 0 0;
+        margin: 0 40px 0 0;
         li {
             position: relative;
             float: left;
-            margin: 0 10px 18px;
+//          margin: 0 10px 18px;
             .wH(70px, 90px);
             text-align: center;
-            overflow: hidden;
             span {
                 position: absolute;
                 display: inline-block;
                 top: 0;
                 left: 0;
                 .wH(100%, 0%);
-                .bg("../img/1.gif");
+                .bg("../img/buttonimg.png");
             }
             a {
                 position: absolute;
@@ -38,8 +37,12 @@ body {
                 color: @fff;
                 font-size: @commonSize;
                 .wH(line, 100%, 30px);
-                .gradient();
+//              .gradient();
                 .shadowText();
+                .radius4(70%, 10px, 0, 0);
+                .shadow4(inset, 20px, @lightOR);
+                border: 2px solid @lightOR;
+                background: @orangeRed;
                 z-index: 100;
                 &:hover span {
                     .animat(menuBar 1000s);
@@ -51,13 +54,14 @@ body {
         }
     }
 }
-.animatKey(~"menuBar {0%{top: 0;left: 20px;width: 0;height: 0;}.05% {top: -51px;left: 0;width: 100%;height: 170%;background: url('../img/1.gif') center no-repeat;background-size: 100% 100%;}100% {top: -51px;left: 0;width: 100%;height: 170%;background: url('../img/1.gif') center no-repeat;background-size: 100% 100%;}}");
+.animatKey(~"menuBar {0%{top: 0;left: 20px;width: 0;height: 0;}.05% {top: -51px;left: 0;width: 100%;height: 170%;background: url('../img/buttonimg.png') center no-repeat;background-size: 100% 100%;}100% {top: -51px;left: 0;width: 100%;height: 170%;background: url('../img/buttonimg.png') center no-repeat;background-size: 100% 100%;}}");
+
 .img {
-    margin: 10px 0;
+    margin: 0 0 15px;
     .img-content {
         position: relative;
         .wH(100%, 500px);
-        border: 4px solid #fff;
+//      border: 1px solid #fff;
         .radius();
         overflow: hidden;
         &>div {
@@ -75,7 +79,7 @@ body {
             a {
                 display: block;
                 .wH(100%, 100%);
-                .bg("../img/21.png", 70%, 70%);
+                .bg("../img/arrows.png", 70%, 70%);
             }
         }
     }
@@ -132,13 +136,13 @@ body {
 .lan {
     margin: 5px;
     padding: 5px;
-    .shadow4(inset, 10px, #999);
+    .shadow4(inset, 10px, @666 * 1.5);
     .article {
         margin: 15px 15px 2px;
         line-height: 25px;
         word-spacing: 1px;
         letter-spacing: 1px;
-        border-bottom: 1px solid #ccc;
+        border-bottom: 1px solid @ccc;
     }
     ul {
         display: block;

@@ -11,22 +11,16 @@ body {
   min-width: 1024px;
   margin: 0 auto;
 }
-.header {
-  margin-top: 30px;
-  background: #cec8c8;
-}
 .header ul {
   float: right;
-  margin: 15px 40px 0 0;
+  margin: 0 40px 0 0;
 }
 .header ul li {
   position: relative;
   float: left;
-  margin: 0 10px 18px;
   width: 70px;
   height: 90px;
   text-align: center;
-  overflow: hidden;
 }
 .header ul li span {
   position: absolute;
@@ -35,7 +29,7 @@ body {
   left: 0;
   width: 100%;
   height: 0%;
-  background: url("../img/1.gif") center no-repeat;
+  background: url("../img/buttonimg.png") center no-repeat;
   background-size: 100% 100%;
 }
 .header ul li a {
@@ -48,19 +42,23 @@ body {
   width: 100%;
   height: 30px;
   line-height: 30px;
-  background: #ff6600;
-  background: -webkit-gradient(linear, left top, left bottom, color-start(0.05, #ff6600), color-stop(1, #ffa366));
-  background: -moz-linear-gradient(top, #ff6600 5%, #ffa366 100%);
-  background: -ms-linear-gradient(top, #ff6600 5%, #ffa366 100%);
-  background: -o-linear-gradient(top, #ff6600 5%, #ffa366 100%);
-  background: linear-gradient(to bottom, #ff6600 5%, #ffa366 100%);
-  background: -webkit-linear-gradient(top, #ff6600 5%, #ffa366 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ff6600, endColorstr=#ffa366, GradientType=0);
   -webkit-text-shadow: 1px 1px 0.5px #f3f3f3;
   -moz-text-shadow: 1px 1px 0.5px #f3f3f3;
   -ms-text-shadow: 1px 1px 0.5px #f3f3f3;
   -o-text-shadow: 1px 1px 0.5px #f3f3f3;
   text-shadow: 1px 1px 0.5px #f3f3f3;
+  -webkit-border-radius: 70% 10px 0 0;
+  -moz-border-radius: 70% 10px 0 0;
+  -ms-border-radius: 70% 10px 0 0;
+  -o-border-radius: 70% 10px 0 0;
+  border-radius: 70% 10px 0 0;
+  -webkit-box-shadow: inset 0 0 20px #ffa366;
+  -moz-box-shadow: inset 0 0 20px #ffa366;
+  -ms-box-shadow: inset 0 0 20px #ffa366;
+  -o-box-shadow: inset 0 0 20px #ffa366;
+  box-shadow: inset 0 0 20px #ffa366;
+  border: 2px solid #ffa366;
+  background: #ff6600;
   z-index: 100;
 }
 .header ul li a:hover span {
@@ -80,29 +78,28 @@ body {
   background: -webkit-linear-gradient(top, #ffa366 5%, #ff6600 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffa366, endColorstr=#ff6600, GradientType=0);
 }
-@-webkit-keyframes menuBar {0%{top: 0;left: 20px;width: 0;height: 0;}.05% {top: -51px;left: 0;width: 100%;height: 170%;background: url('../img/1.gif') center no-repeat;background-size: 100% 100%;}100% {top: -51px;left: 0;width: 100%;height: 170%;background: url('../img/1.gif') center no-repeat;background-size: 100% 100%;}} {
+@-webkit-keyframes menuBar {0%{top: 0;left: 20px;width: 0;height: 0;}.05% {top: -51px;left: 0;width: 100%;height: 170%;background: url('../img/buttonimg.png') center no-repeat;background-size: 100% 100%;}100% {top: -51px;left: 0;width: 100%;height: 170%;background: url('../img/buttonimg.png') center no-repeat;background-size: 100% 100%;}} {
   
 }
-@-moz-keyframes menuBar {0%{top: 0;left: 20px;width: 0;height: 0;}.05% {top: -51px;left: 0;width: 100%;height: 170%;background: url('../img/1.gif') center no-repeat;background-size: 100% 100%;}100% {top: -51px;left: 0;width: 100%;height: 170%;background: url('../img/1.gif') center no-repeat;background-size: 100% 100%;}} {
+@-moz-keyframes menuBar {0%{top: 0;left: 20px;width: 0;height: 0;}.05% {top: -51px;left: 0;width: 100%;height: 170%;background: url('../img/buttonimg.png') center no-repeat;background-size: 100% 100%;}100% {top: -51px;left: 0;width: 100%;height: 170%;background: url('../img/buttonimg.png') center no-repeat;background-size: 100% 100%;}} {
   
 }
-@-ms-keyframes menuBar {0%{top: 0;left: 20px;width: 0;height: 0;}.05% {top: -51px;left: 0;width: 100%;height: 170%;background: url('../img/1.gif') center no-repeat;background-size: 100% 100%;}100% {top: -51px;left: 0;width: 100%;height: 170%;background: url('../img/1.gif') center no-repeat;background-size: 100% 100%;}} {
+@-ms-keyframes menuBar {0%{top: 0;left: 20px;width: 0;height: 0;}.05% {top: -51px;left: 0;width: 100%;height: 170%;background: url('../img/buttonimg.png') center no-repeat;background-size: 100% 100%;}100% {top: -51px;left: 0;width: 100%;height: 170%;background: url('../img/buttonimg.png') center no-repeat;background-size: 100% 100%;}} {
   
 }
-@-o-keyframes menuBar {0%{top: 0;left: 20px;width: 0;height: 0;}.05% {top: -51px;left: 0;width: 100%;height: 170%;background: url('../img/1.gif') center no-repeat;background-size: 100% 100%;}100% {top: -51px;left: 0;width: 100%;height: 170%;background: url('../img/1.gif') center no-repeat;background-size: 100% 100%;}} {
+@-o-keyframes menuBar {0%{top: 0;left: 20px;width: 0;height: 0;}.05% {top: -51px;left: 0;width: 100%;height: 170%;background: url('../img/buttonimg.png') center no-repeat;background-size: 100% 100%;}100% {top: -51px;left: 0;width: 100%;height: 170%;background: url('../img/buttonimg.png') center no-repeat;background-size: 100% 100%;}} {
   
 }
-@keyframes menuBar {0%{top: 0;left: 20px;width: 0;height: 0;}.05% {top: -51px;left: 0;width: 100%;height: 170%;background: url('../img/1.gif') center no-repeat;background-size: 100% 100%;}100% {top: -51px;left: 0;width: 100%;height: 170%;background: url('../img/1.gif') center no-repeat;background-size: 100% 100%;}} {
+@keyframes menuBar {0%{top: 0;left: 20px;width: 0;height: 0;}.05% {top: -51px;left: 0;width: 100%;height: 170%;background: url('../img/buttonimg.png') center no-repeat;background-size: 100% 100%;}100% {top: -51px;left: 0;width: 100%;height: 170%;background: url('../img/buttonimg.png') center no-repeat;background-size: 100% 100%;}} {
   
 }
 .img {
-  margin: 10px 0;
+  margin: 0 0 15px;
 }
 .img .img-content {
   position: relative;
   width: 100%;
   height: 500px;
-  border: 4px solid #fff;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -133,7 +130,7 @@ body {
   display: block;
   width: 100%;
   height: 100%;
-  background: url("../img/21.png") center no-repeat;
+  background: url("../img/arrows.png") center no-repeat;
   background-size: 70% 70%;
 }
 .img .data-img-1 {
@@ -222,7 +219,7 @@ body {
   line-height: 25px;
   word-spacing: 1px;
   letter-spacing: 1px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #cccccc;
 }
 .lan ul {
   display: block;

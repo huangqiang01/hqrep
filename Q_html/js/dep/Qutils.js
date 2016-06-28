@@ -138,6 +138,15 @@ if (typeof jQuery === "undefined"){
 			minutes = minutes.length === 1 ? "0" + minutes : minutes;
 			seconds = seconds.length === 1 ? "0" + seconds : seconds;
 			return cur.getFullYear() + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds;
+		},
+		
+		/**
+		 * 判断当前设备是否pc端
+		 */
+		
+		isPC: function(){
+			var userAgent = navigator.userAgent.toLowerCase();
+			return userAgent;
 		}
 	};
 	
