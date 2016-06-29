@@ -1,0 +1,108 @@
+@charset "utf-8";
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-size: 100px;
+  background: #000000;
+}
+.content {
+  font-size: 0.14rem;
+  color: #ffffff;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.content div {
+  line-height: 25px;
+  text-align: center;
+}
+.content div a {
+  display: inline-block;
+  width: 60px;
+  height: 100%;
+  -webkit-box-shadow: inset 0 0 10px #ffffff;
+  -moz-box-shadow: inset 0 0 10px #ffffff;
+  -ms-box-shadow: inset 0 0 10px #ffffff;
+  -o-box-shadow: inset 0 0 10px #ffffff;
+  box-shadow: inset 0 0 10px #ffffff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  background: #ffa366;
+  color: #ffffff;
+  margin: 0 20px;
+  padding: 10px 26px;
+}
+.page {
+  width: 300%;
+  -webkit-transform: translate(-33.33333333%, 0);
+  -moz-transform: translate(-33.33333333%, 0);
+  -ms-transform: translate(-33.33333333%, 0);
+  -o-transform: translate(-33.33333333%, 0);
+  transform: translate(-33.33333333%, 0);
+}
+.page div {
+  float: left;
+}
+.img {
+  width: 33.33333333%;
+}
+.img strong {
+  display: block;
+  padding: 10px 20px;
+}
+.img img {
+  width: 100%;
+}
+.img span {
+  display: block;
+  line-height: 20px;
+  margin: 2px 8px;
+  padding: 4px;
+}
+.content-big {
+  position: fixed;
+  top: 0;
+  left: 0;
+  font-size: 0.14rem;
+  background: #000000;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+}
+.content-big .img-reset {
+  position: fixed;
+  display: inline-block;
+  color: #ffa366;
+  width: 40px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 2px 2px 1px #cccccc;
+  -moz-box-shadow: 2px 2px 1px #cccccc;
+  -ms-box-shadow: 2px 2px 1px #cccccc;
+  -o-box-shadow: 2px 2px 1px #cccccc;
+  box-shadow: 2px 2px 1px #cccccc;
+  background: rgba(226, 226, 226, 0.44);
+  top: 10px;
+  left: 10px;
+}
+.content-big .img-reset:active {
+  -webkit-box-shadow: 0 0 0 #cccccc;
+  -moz-box-shadow: 0 0 0 #cccccc;
+  -ms-box-shadow: 0 0 0 #cccccc;
+  -o-box-shadow: 0 0 0 #cccccc;
+  box-shadow: 0 0 0 #cccccc;
+}
+.big-super-img img {
+  display: block;
+  width: 100%;
+}
