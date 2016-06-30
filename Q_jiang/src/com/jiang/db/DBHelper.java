@@ -14,13 +14,13 @@ import java.sql.SQLException;
  */
 public class DBHelper {
 	
-	private final static String url = "jdbc:mysql://127.0.0.1:3306/q_jiang?useSSL=false";
+	private final static String url = "jdbc:mysql://127.0.0.1:3306/app?useSSL=false";
 	
 	private final static String driver = "com.mysql.jdbc.Driver";
 	
 	private final static String user = "root";
 	
-	private final static String password = "root";
+	private final static String password = "tqyhq2@db";
 	
 	private Connection conn = null;
 	

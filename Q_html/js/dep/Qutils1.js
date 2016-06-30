@@ -18,7 +18,7 @@ if (typeof jQuery === "undefined"){
 		
 		// ajax请求参数
 		ajaxs = {
-			url: "receiveServlet?num=" + Math.random(),
+			url: "http://120.27.7.2:3333/receiveServlet?num=" + Math.random(),
 			timeout: 1000 * 60,
 			async: true,
 			dataType: "json",

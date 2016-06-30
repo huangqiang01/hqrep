@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.jiang.bean.Presentations;
 import com.jiang.bean.Userinfo;
 import com.jiang.db.DBHelper;
 import com.jiang.qutils.QException;
@@ -70,4 +71,33 @@ public class GetDataImpl extends QOutput {
 			this.outPut("-1", "删除失败");
 		}
 	}
+	
+	/**
+	 * 查询相关介绍
+	 * @throws SQLException 
+	 * @throws IOException 
+	 */
+	public void getPresent() throws SQLException, IOException{
+		List list = new ArrayList();
+		//模拟获取数据库数据
+		Presentations present = new Presentations();
+		dbh = new DBHelper("select * from presentations;");
+		rs = dbh.pst.executeQuery();
+		while(rs.next()){
+			present.setId(rs.getString("id"));
+			present.setPrName(rs.getString("prName"));
+			present.setPrContent(rs.getString("prContent"));
+			present.setIsShow(rs.getString("isShow"));
+			present.setReserve(rs.getString("reserve"));
+			list.add(present);
+		}
+		this.outPut(list);
+	} 
+	
+	
+	
+	
+	
+	
+	
 }

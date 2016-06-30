@@ -50,6 +50,9 @@ public class ReceiveServlet extends HttpServlet {
 				case 1000:
 					func.func1000(request);
 					break;
+				case 1001: 
+					func.func1001();
+					break;
 				case 2000:
 					
 					break;

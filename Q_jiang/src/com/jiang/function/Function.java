@@ -42,4 +42,9 @@ public class Function extends QOutput {
 		
 //		this.outPut(getDataImpl.getUserinfo(username, password));
 	}
+	
+	public void func1001() throws SQLException, IOException{
+		getDataImpl.getPresent();
+		
+	}
 }

@@ -1,10 +1,14 @@
-create database q_jiang;
+create database app;
 
-create table big_directory(
-	big_id char(5) primary key,
-	big_title varchar(30) not null,
-	big_content varchar(200),
-	big_01 varchar(200)
+use app;
+
+/********相关介绍********/
+create table presentations(
+	id int(4) primary key auto_increment,
+	prName varchar(20),
+	prContent text,
+	isShow varchar(4),
+	reserve varchar(80)
 );
 
-insert into big_directory value("1", "天安门", "天安门上太阳升", "我爱北京天安门，天安门上太阳升，伟大..."); 
+insert into presentations values(0,'网站介绍','我爱北京天安门，天安门上太阳升','1', '');
