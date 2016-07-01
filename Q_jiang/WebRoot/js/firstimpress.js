@@ -53,7 +53,7 @@ function getNewMessage(){
 			str = "";
 		for(var i = 0; i < res_lenth; i++){
 			var item = results[i];
-			str += "<div class='evaluate'><p class='name'>" + item.edate + " " + item.etime + "</span><p class='neirong'> "+item.evalContent+"</p>";
+			str += "<div class='evaluate'><p class='name'>" + item.edate + " " + item.etime + "</span><p class='neirong'> "+item.evalContent+"</p></div>";
 		}
 		$(".intro-content").html(str);
 	});
