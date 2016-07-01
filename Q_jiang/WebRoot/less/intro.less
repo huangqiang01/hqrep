@@ -1,0 +1,98 @@
+@charset "utf-8";
+
+@import "constant";
+
+html, body {
+    background: @bodybg;
+    font-size: @allSize;
+}
+.page {
+    .allXNW();
+    strong {
+        display: block;
+        padding: 40px 0 20px;
+        font-size: @bitSize;
+        text-align: center;
+    }
+    .intro {
+        margin: 0 0 40px;
+    }
+}
+.side-bar {
+    float: left;
+    width: 200px;
+    ul {
+        display: block;
+        width: 180px;
+        li {
+            display: block;
+            height: 40px;
+            margin: 10px 0;
+            &:hover a{
+                background: @orangeRed;
+                .translate(10px);
+                .tran(all .5s ease-out);
+            }
+            &.active a{
+                position: relative;
+                background: @orangeRed;
+                &:after {
+                    content: "";
+                    position: absolute;
+                    display: block;
+                    top: 12px;
+                    right: -16px;
+                    .wH(0, 0);
+                    border-width: 8px;
+                    border-style: solid;
+                    border-color: transparent transparent transparent @orangeRed;
+                }
+                .translate(20px);
+                .shadow(1px, 1px, #666);
+            }
+        }
+        a {
+            display: block;
+            height: 100%;
+            line-height: 40px;
+            text-align: center;
+            font-size: @commonSize;
+            color: #fff;
+            background: @lightOR;
+            .shadow(4px, 4px, #666);
+            .radius(3px);
+        }
+    }
+}
+.intro-content {
+    display: none;
+    margin: 0 0 0 210px;
+    border: 1px solid @ccc;
+    font-size: @commonSize;
+    padding: 25px;
+    line-height: 25px;
+    background: @fff;
+    color: @666/2;
+    .radius(5px);
+    .shadow();
+    a {
+        color: @lightRed;
+        font-weight: 700;
+    }
+    p {
+        text-indent: 29px;
+    }
+    .annotation {
+        span {
+            display: block;
+            margin-right: 130px;
+        }
+    }
+    img {
+        float: right;
+        .wH(100px, 100px);
+        border: 1px solid @ccc;
+        .radius();
+        .shadow(3px, 3px);
+    }
+}

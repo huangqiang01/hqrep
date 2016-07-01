@@ -3,33 +3,29 @@
 
 	<head>
 		<meta charset="UTF-8">
-		<title>Q_jiang接口test</title>
+		<title></title>
+		<!--<link rel="stylesheet" href="css/normalize.css" />-->
 	</head>
+
 	<body>
-		<div>
-			<span id="name"></span>
-			<span id="info"></span>
-		</div>
 	</body>
-	<script type="text/javascript" src="js/dep/jquery-1.11.1.js"></script>
+	<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 	<script type="text/javascript" src="js/dep/Qutils.js"></script>
 	<script>
-		var name = Qutils.getParam("username"),
-			pass = Qutils.getParam("password");
-		var json = {
-			"funNo": "1000",
-			"username": name,
-			"password": pass
+		//		console.log(Qutils.Qcurrent());
+		//		var e = "CspD+AT5iPGeJeLhvNoRYqJzMWdFWAjCT2osHpa80xN2Eidtei+dng==#!/index.html";
+		//		
+		//		console.log(e.replace("#!/index.html", ""));
+
+		var param = {
+			funNo: "1001"
 		};
-		Qutils.Qget(json, function(data){
-			console.log(1);
-			if (data.error_no === "0"){
-				var results = data.results,
-					itme = results[0];
-				
-			} else {
-				alert(data.error_info);
-			}
-		});
+
+		Qutils.Qget(param, function(data) {
+			var results = data.results;
+			var item = results[0];
+			alert(item.prContent);
+		})
 	</script>
+
 </html>

@@ -18,7 +18,7 @@ if (typeof jQuery === "undefined"){
 		
 		// ajax请求参数
 		ajaxs = {
-			url: "receiveServlet?num=" + Math.random(),
+			url: "/Q_jiang/receiveServlet?num=" + Math.random(),// 生产修改
 			timeout: 1000 * 60,
 			async: true,
 			dataType: "json",
@@ -141,6 +141,18 @@ if (typeof jQuery === "undefined"){
 			minutes = minutes.length === 1 ? "0" + minutes : minutes;
 			seconds = seconds.length === 1 ? "0" + seconds : seconds;
 			return cur.getFullYear() + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds;
+		},
+		
+		/**
+		 * 判断数据结果
+		 */
+		checkData: function (data){
+			if (data.error_no === "0"){
+				return data.results;
+			} else {
+				alert(data.error_info);
+				return false;
+			}
 		},
 		
 		/**

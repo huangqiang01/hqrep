@@ -13,6 +13,9 @@ html, body {
         font-size: @bitSize;
         text-align: center;
     }
+    .intro {
+        margin: 0 0 40px;
+    }
 }
 .side-bar {
     float: left;
@@ -61,11 +64,33 @@ html, body {
     }
 }
 .intro-content {
-    margin: 0 0 20px 210px;
-    border: 1px solid #ccc;
+    margin: 0 0 0 210px;
+    border: 1px solid @ccc;
     font-size: @commonSize;
     padding: 25px;
     line-height: 25px;
+    background: @fff;
+    color: @666/2;
     .radius(5px);
     .shadow();
+    a {
+        color: @lightRed;
+        font-weight: 700;
+    }
+    p {
+        text-indent: 29px;
+    }
+    .annotation {
+        span {
+            display: block;
+            margin-right: 130px;
+        }
+    }
+    img {
+        float: right;
+        .wH(100px, 100px);
+        border: 1px solid @ccc;
+        .radius();
+        .shadow(3px, 3px);
+    }
 }

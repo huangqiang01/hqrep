@@ -51,7 +51,16 @@ public class ReceiveServlet extends HttpServlet {
 					func.func1000(request);
 					break;
 				case 1001: 
+					// 
 					func.func1001();
+					break;
+				case 1002:
+					// 提交建议-留言
+					func.func1002(request);
+					break;
+				case 1003:
+					// 获取最新评论
+					func.func1003(request);
 					break;
 				case 2000:
 					

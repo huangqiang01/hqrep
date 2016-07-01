@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.jiang.bean.Evaluation;
 import com.jiang.bean.Presentations;
 import com.jiang.bean.Userinfo;
 import com.jiang.db.DBHelper;
@@ -73,17 +74,22 @@ public class GetDataImpl extends QOutput {
 	}
 	
 	/**
-	 * 查询相关介绍
-	 * @throws SQLException 
-	 * @throws IOException 
+	 * 
+	 * 描述：查询相关介绍
+	 * @author Q
+	 * @created 2016年7月1日 下午3:54:42
+	 * @since 
+	 * @throws SQLException
+	 * @throws IOException
 	 */
 	public void getPresent() throws SQLException, IOException{
 		List list = new ArrayList();
 		//模拟获取数据库数据
-		Presentations present = new Presentations();
+		Presentations present;
 		dbh = new DBHelper("select * from presentations;");
 		rs = dbh.pst.executeQuery();
 		while(rs.next()){
+			present = new Presentations();
 			present.setId(rs.getString("id"));
 			present.setPrName(rs.getString("prName"));
 			present.setPrContent(rs.getString("prContent"));
@@ -92,9 +98,55 @@ public class GetDataImpl extends QOutput {
 			list.add(present);
 		}
 		this.outPut(list);
-	} 
+	}
 	
+	/**
+	 * 
+	 * 描述：提交建议-留言
+	 * @author Q
+	 * @created 2016年7月1日 下午3:54:15
+	 * @since 
+	 * @throws SQLException
+	 * @throws IOException
+	 */
+	public void submitLeave(String time, String date, String text) throws SQLException, IOException{
+		String sql = "insert into websiteEvaluation values(0, '"+time+"', '"+date+"', '"+text+"', '')";
+		dbh = new DBHelper(sql);
+		int up_num = dbh.pst.executeUpdate();
+		if (up_num > 0){
+			this.outPut("0", "提交成功");
+		} else {
+			this.outPut("-1", "提交失败");
+		}
+	}
 	
+	/**
+	 * 
+	 * 描述：获取最新留言
+	 * @author Q
+	 * @created 2016年7月1日 下午4:20:48
+	 * @since 
+	 * @throws SQLException
+	 * @throws IOException
+	 */
+	public void getNewMessage(String startPage) throws SQLException, IOException{
+		List list = new ArrayList();
+		//模拟获取数据库数据
+		Evaluation evaluation;
+		int start = Integer.parseInt(startPage);
+		dbh = new DBHelper("select * from websiteEvaluation order by edate desc, etime desc, id desc limit "+((start - 1)*20)+", 20;");
+		rs = dbh.pst.executeQuery();
+		while(rs.next()){
+			evaluation = new Evaluation();
+			evaluation.setId(rs.getString("id"));
+			evaluation.setEtime(rs.getString("etime"));
+			evaluation.setEdate(rs.getString("edate"));
+			evaluation.setEvalContent(rs.getString("evalContent"));
+			evaluation.setReserve(rs.getString("reserve"));
+			list.add(evaluation);
+		}
+		this.outPut(list);
+	}
 	
 	
 	

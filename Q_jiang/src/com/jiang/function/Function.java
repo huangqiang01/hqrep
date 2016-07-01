@@ -43,8 +43,60 @@ public class Function extends QOutput {
 //		this.outPut(getDataImpl.getUserinfo(username, password));
 	}
 	
+	/**
+	 * 
+	 * 描述：获取网站相关介绍
+	 * @author Q
+	 * @created 2016年7月1日 下午4:19:44
+	 * @since 
+	 * @throws SQLException
+	 * @throws IOException
+	 */
 	public void func1001() throws SQLException, IOException{
 		getDataImpl.getPresent();
 		
+	}
+	
+	/**
+	 * 
+	 * 描述：提交建议-留言
+	 * @author Q
+	 * @created 2016年7月1日 下午3:47:02
+	 * @since 
+	 * @throws SQLException
+	 * @throws IOException
+	 * @throws QException 
+	 */
+	public void func1002(HttpServletRequest request) throws SQLException, IOException, QException{
+		String time = request.getParameter("time");
+		String date = request.getParameter("date");
+		String text = request.getParameter("text");
+		if (time.equals("")){
+			throw new QException("-1", "评论的时间不能为空");
+		}
+		if (date.equals("")){
+			throw new QException("-2", "评论的日期不能为空");
+		}
+		if (text.equals("")){
+			throw new QException("-3", "评论的内容不能为空");
+		}
+		getDataImpl.submitLeave(time, date, text);
+	}
+	
+	/**
+	 * 
+	 * 描述：获取最新留言
+	 * @author Q
+	 * @created 2016年7月1日 下午4:20:13
+	 * @since 
+	 * @throws SQLException
+	 * @throws IOException
+	 */
+	public void func1003(HttpServletRequest request) throws SQLException, IOException{
+		String startPage = request.getParameter("startPage");
+		if (startPage.equals("")){
+			startPage = "1";
+		}
+		getDataImpl.getNewMessage(startPage);
 	}
 }
