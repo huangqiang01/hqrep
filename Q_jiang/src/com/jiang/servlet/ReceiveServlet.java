@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.jiang.function.Function;
+import com.jiang.input.filter.GetIP;
 import com.jiang.qutils.QOutput;
 
 /**
@@ -27,7 +28,7 @@ public class ReceiveServlet extends HttpServlet {
 	
 	// 功能层
 	Function func = new Function();
-
+	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -48,11 +49,12 @@ public class ReceiveServlet extends HttpServlet {
 		try {
 			switch(funNo){
 				case 1000:
+					// 查询banner图片
 					func.func1000(request);
 					break;
 				case 1001: 
-					// 
-					func.func1001();
+					// 查询网站相关介绍
+					func.func1001(request);
 					break;
 				case 1002:
 					// 提交建议-留言

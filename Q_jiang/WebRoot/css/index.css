@@ -118,11 +118,6 @@ body {
   border-radius: 5px;
   overflow: hidden;
 }
-.img .img-content > div {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
 .img .img-content > span {
   position: absolute;
   display: inline-block;
@@ -144,20 +139,52 @@ body {
   background: url("../img/arrows.png") center no-repeat;
   background-size: 70% 70%;
 }
-.img .data-img-1 {
-  background: url("../img/banner-1.jpg") center no-repeat;
-  background-size: 100% 100%;
-  opacity: 1;
+.img .data-img {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
+.img .data-img img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.img .data-img-1,
 .img .data-img-2 {
-  background: url("../img/banner-2.jpg") center no-repeat;
-  background-size: 100% 100%;
   opacity: 0;
 }
-.img .data-img-3 {
-  background: url("../img/banner-3.jpg") center no-repeat;
-  background-size: 100% 100%;
+.img .data-img img.opacity-hide {
   opacity: 0;
+  -webkit-transition: scale(0, 0);
+  transform: scale(0, 0);
+  -webkit-transition: all 1.5s ease-in;
+  -moz-transition: all 1.5s ease-in;
+  -ms-transition: all 1.5s ease-in;
+  -o-transition: all 1.5s ease-in;
+  transition: all 1.5s ease-in;
+}
+.img .data-img img.translate-hide {
+  opacity: 0;
+  -webkit-transform: translate(1240px, 0);
+  -moz-transform: translate(1240px, 0);
+  -ms-transform: translate(1240px, 0);
+  -o-transform: translate(1240px, 0);
+  transform: translate(1240px, 0);
+  -webkit-transition: all 1.5s ease-in;
+  -moz-transition: all 1.5s ease-in;
+  -ms-transition: all 1.5s ease-in;
+  -o-transition: all 1.5s ease-in;
+  transition: all 1.5s ease-in;
+}
+.img .data-img img.opacity-show {
+  opacity: 1;
+  -webkit-transition: scale(1, 1);
+  transform: scale(1, 1);
+  -webkit-transition: all 1.5s ease-in;
+  -moz-transition: all 1.5s ease-in;
+  -ms-transition: all 1.5s ease-in;
+  -o-transition: all 1.5s ease-in;
+  transition: all 1.5s ease-in;
 }
 .img .s-left {
   left: 30px;
@@ -249,7 +276,7 @@ body {
   position: absolute;
   display: block;
   top: 10px;
-  left: 0px;
+  left: 0;
   width: 20px;
   height: 20px;
   background: url("../img/clike.png") center no-repeat;
@@ -260,7 +287,7 @@ body {
   position: absolute;
   display: block;
   top: 10px;
-  left: 0px;
+  left: 0;
   width: 20px;
   height: 20px;
   background: url("../img/creply.png") center no-repeat;

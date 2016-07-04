@@ -6,10 +6,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.jiang.bean.BannerImg;
 import com.jiang.bean.Evaluation;
 import com.jiang.bean.Presentations;
 import com.jiang.bean.Userinfo;
 import com.jiang.db.DBHelper;
+import com.jiang.input.filter.GetIP;
 import com.jiang.qutils.QException;
 import com.jiang.qutils.QOutput;
 
@@ -21,6 +23,7 @@ public class GetDataImpl extends QOutput {
 	
 	static DBHelper dbh;
 	static ResultSet rs;
+	
 
 	//模拟获取 数据
 	public void getUserinfo(String username, String password) throws Exception, IOException, SQLException{
@@ -75,6 +78,35 @@ public class GetDataImpl extends QOutput {
 	
 	/**
 	 * 
+	 * 描述：获取首页banner
+	 * @author Q
+	 * @created 2016年7月4日 下午2:37:41
+	 * @since 
+	 * @throws SQLException
+	 * @throws IOException
+	 */
+	public void getBannerImg() throws SQLException, IOException{
+		List list = new ArrayList();
+		//模拟获取数据库数据
+		BannerImg bannerImg;
+		dbh = new DBHelper("select * from bannerImg where isShow=1 order by showOrder;");
+		rs = dbh.pst.executeQuery();
+		while(rs.next()){
+			bannerImg = new BannerImg();
+			bannerImg.setId(rs.getString("id"));
+			bannerImg.setAddr(rs.getString("addr"));
+			bannerImg.setiName(rs.getString("iName"));
+			bannerImg.setiExplain(rs.getString("iExplain"));
+			bannerImg.setIsShow(rs.getString("isShow"));
+			bannerImg.setShowOrder(rs.getString("showOrder"));
+			bannerImg.setReserve(rs.getString("reserve"));
+			list.add(bannerImg);
+		}
+		this.outPut(list);
+	}
+	
+	/**
+	 * 
 	 * 描述：查询相关介绍
 	 * @author Q
 	 * @created 2016年7月1日 下午3:54:42
@@ -108,9 +140,25 @@ public class GetDataImpl extends QOutput {
 	 * @since 
 	 * @throws SQLException
 	 * @throws IOException
+	 * @throws QException 
 	 */
-	public void submitLeave(String time, String date, String text) throws SQLException, IOException{
-		String sql = "insert into websiteEvaluation values(0, '"+time+"', '"+date+"', '"+text+"', '')";
+	public void submitLeave(String time, String date, String text, String mark, String ip) throws SQLException, IOException, QException{
+		String tname = "websiteEvaluation";
+		String einfo = "请不要频繁提交评价";
+		if (mark.equals("1")){
+			tname = "websiteSuggest";
+			einfo = "请不要频繁提交建议";
+		}
+		String sql = "select * from "+tname+" where ip='"+ip+"' and edate='"+date+"'";
+		dbh = new DBHelper(sql);
+		
+		rs = dbh.pst.executeQuery();
+		rs.last();
+		if (rs.getRow() >= 2){
+			rs.beforeFirst();
+			throw new QException("-1", einfo);
+		}
+		sql = "insert into "+tname+" values(0, '"+time+"', '"+date+"', '"+text+"', '"+ip+"', '')";
 		dbh = new DBHelper(sql);
 		int up_num = dbh.pst.executeUpdate();
 		if (up_num > 0){

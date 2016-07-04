@@ -2,6 +2,8 @@
 var $nowTime = $("#nowTime"),
 	$submitI = $("#submitI"),
 	$text = $("#text"),
+	// 提交类型0-评价，1-建议
+	subMark = 0,
 	// 当前分页
 	nowPage = 1;
 
@@ -22,7 +24,7 @@ $("#selectBar>a").on("click", function(e){
 	if ($this.attr("class")){
 		return false;
 	}
-	$this.attr("data-leave") === "0" ? $submitI.text("提交评价") : $submitI.text("提交建议");
+	$this.attr("data-leave") === "0" ? ($submitI.text("提交评价"), subMark = 0) : ($submitI.text("提交建议"), subMark = 1);
 	$this.addClass("active").siblings("a").removeClass("active");
 	e.stopPropagation();
 });
@@ -102,6 +104,7 @@ function submitContent(text){
 			funNo: "1002",
 			date: arrT[0],
 			time: arrT[1],
+			subMark: subMark,
 			text: text
 		}
 		

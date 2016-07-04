@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.jiang.input.check.CheckInput;
+import com.jiang.input.filter.GetIP;
 import com.jiang.qutils.QException;
 import com.jiang.qutils.QOutput;
 import com.jiang.service.impl.GetDataImpl;
@@ -20,6 +21,9 @@ public class Function extends QOutput {
 	// 创建业务层
 	GetDataImpl getDataImpl = new GetDataImpl();
 	
+	// ip
+	GetIP getIp = new GetIP();
+	
 	/**
 	 * @throws QException 
 	 * @throws SQLException 
@@ -27,20 +31,23 @@ public class Function extends QOutput {
 	 */
 	public void func1000(HttpServletRequest request) throws ServletException, IOException, QException, SQLException {
 		
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		// 检查入参是否合法
-		if (username.equals("")){
-			throw new QException("-1", "用户名不能为空");
-		}
-		if (password.equals("")){
-			throw new QException("-2", "密码不能为空");
-		}
-//		getDataImpl.addInfo();
-//		getDataImpl.updateInfo();
-		getDataImpl.deleteInfo();
+		getDataImpl.getBannerImg();
 		
-//		this.outPut(getDataImpl.getUserinfo(username, password));
+		
+//		String username = request.getParameter("username");
+//		String password = request.getParameter("password");
+//		// 检查入参是否合法
+//		if (username.equals("")){
+//			throw new QException("-1", "用户名不能为空");
+//		}
+//		if (password.equals("")){
+//			throw new QException("-2", "密码不能为空");
+//		}
+////		getDataImpl.addInfo();
+////		getDataImpl.updateInfo();
+//		getDataImpl.deleteInfo();
+//		
+////		this.outPut(getDataImpl.getUserinfo(username, password));
 	}
 	
 	/**
@@ -52,9 +59,8 @@ public class Function extends QOutput {
 	 * @throws SQLException
 	 * @throws IOException
 	 */
-	public void func1001() throws SQLException, IOException{
+	public void func1001(HttpServletRequest request) throws SQLException, IOException{
 		getDataImpl.getPresent();
-		
 	}
 	
 	/**
@@ -68,9 +74,12 @@ public class Function extends QOutput {
 	 * @throws QException 
 	 */
 	public void func1002(HttpServletRequest request) throws SQLException, IOException, QException{
+		String ip = getIp.getIpAddr(request);
 		String time = request.getParameter("time");
 		String date = request.getParameter("date");
 		String text = request.getParameter("text");
+		String mark = request.getParameter("subMark");
+		mark = mark.equals("") ? "0" : mark;
 		if (time.equals("")){
 			throw new QException("-1", "评论的时间不能为空");
 		}
@@ -80,7 +89,7 @@ public class Function extends QOutput {
 		if (text.equals("")){
 			throw new QException("-3", "评论的内容不能为空");
 		}
-		getDataImpl.submitLeave(time, date, text);
+		getDataImpl.submitLeave(time, date, text, mark, ip);
 	}
 	
 	/**

@@ -110,6 +110,10 @@
     -o-transition: @tran;
     transition: @tran;
 }
+.scale(@x: 0,@y: 0){
+    -webkit-transition: scale(@x,@y);
+    transform: scale(@x,@y);
+}
 // 旋转
 .rotate(@x) {
     -webkit-transform: rotate(@x);
