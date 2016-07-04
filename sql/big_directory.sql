@@ -15,7 +15,7 @@ create table bannerImg(
 );
 
 insert into bannerImg values(0,'img/banner-1.jpg','天空','我爱北京天安门，天安门上太阳升','1','0','');
-
+insert into bannerImg values(0,'img/banner-2.jpg','天空1','我爱北京天安门，天安门上太阳升1','1','0','');
 
 
 
