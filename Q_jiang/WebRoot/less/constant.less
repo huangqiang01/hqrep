@@ -110,8 +110,12 @@
     -o-transition: @tran;
     transition: @tran;
 }
+// 缩放
 .scale(@x: 0,@y: 0){
-    -webkit-transition: scale(@x,@y);
+    -webkit-transform: scale(@x,@y);
+    -moz-transform: scale(@x,@y);
+    -ms-transform: scale(@x,@y);
+    -o-transform: scale(@x,@y);
     transform: scale(@x,@y);
 }
 // 旋转
@@ -141,6 +145,15 @@
     -o-transform: rotateY(@y);
     transform: rotateY(@y);
 }
+// 缩放旋转
+.scale-rotate(@sr) {
+    -webkit-transform: @arguments;
+    -moz-transform: @arguments;
+    -ms-transform: @arguments;
+    -o-transform: @arguments;
+    transform: @arguments;
+}
+
 
 // 动画
 .animat(...) {

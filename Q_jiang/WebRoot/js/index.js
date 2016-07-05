@@ -42,7 +42,7 @@ function addImg(img) {
  * 图片自动切换
  */
 function autoChangeImg(length){
-	$(".data-img-0").addClass("translate-hide");
+	$(".data-img-0").addClass("rotate-tran-show");
 }
 
 
