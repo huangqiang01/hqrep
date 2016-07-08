@@ -148,18 +148,31 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
+  opacity: 0;
 }
 .img .data-img img.init0 {
-  opacity: 0.4;
+  opacity: 0;
+  -webkit-transform: scale(0, 0);
+  -moz-transform: scale(0, 0);
+  -ms-transform: scale(0, 0);
+  -o-transform: scale(0, 0);
+  transform: scale(0, 0);
+}
+.img .data-img img.init1 {
+  opacity: 0;
+  -webkit-transform: translate(-1024px, 0);
+  -moz-transform: translate(-1024px, 0);
+  -ms-transform: translate(-1024px, 0);
+  -o-transform: translate(-1024px, 0);
+  transform: translate(-1024px, 0);
+}
+.img .data-img img.init2 {
+  opacity: 0;
   -webkit-transform: scale(0.3, 0.3) translate(-2688px, -1085px);
   -moz-transform: scale(0.3, 0.3) translate(-2688px, -1085px);
   -ms-transform: scale(0.3, 0.3) translate(-2688px, -1085px);
   -o-transform: scale(0.3, 0.3) translate(-2688px, -1085px);
   transform: scale(0.3, 0.3) translate(-2688px, -1085px);
-}
-.img .data-img-1,
-.img .data-img-2 {
-  opacity: 0;
 }
 .img .data-img img.opacity-hide {
   opacity: 0;
@@ -196,21 +209,13 @@ body {
     -o-transform: scale(0.3, 0.3) rotate(360deg);
     transform: scale(0.3, 0.3) rotate(360deg);
   }
-  70% {
-    opacity: 0.4;
-    -webkit-transform: scale(0.3, 0.3) rotate(360deg) translate(300px, -300px);
-    -moz-transform: scale(0.3, 0.3) rotate(360deg) translate(300px, -300px);
-    -ms-transform: scale(0.3, 0.3) rotate(360deg) translate(300px, -300px);
-    -o-transform: scale(0.3, 0.3) rotate(360deg) translate(300px, -300px);
-    transform: scale(0.3, 0.3) rotate(360deg) translate(300px, -300px);
-  }
   100% {
     opacity: 0;
-    -webkit-transform: scale(0.3, 0.3) rotate(360deg) translate(600px, 300px);
-    -moz-transform: scale(0.3, 0.3) rotate(360deg) translate(600px, 300px);
-    -ms-transform: scale(0.3, 0.3) rotate(360deg) translate(600px, 300px);
-    -o-transform: scale(0.3, 0.3) rotate(360deg) translate(600px, 300px);
-    transform: scale(0.3, 0.3) rotate(360deg) translate(600px, 300px);
+    -webkit-transform: scale(0, 0) rotate(360deg) translate(3000px, -2000px);
+    -moz-transform: scale(0, 0) rotate(360deg) translate(3000px, -2000px);
+    -ms-transform: scale(0, 0) rotate(360deg) translate(3000px, -2000px);
+    -o-transform: scale(0, 0) rotate(360deg) translate(3000px, -2000px);
+    transform: scale(0, 0) rotate(360deg) translate(3000px, -2000px);
   }
 }
 .img .data-img img.rotate-tran-hide {
@@ -246,45 +251,50 @@ body {
 @-webkit-keyframes rtshow {
   20% {
     opacity: 0.4;
-    -webkit-transform: scale(0.3, 0.3) translate(-1588px, 0px);
-    -moz-transform: scale(0.3, 0.3) translate(-1588px, 0px);
-    -ms-transform: scale(0.3, 0.3) translate(-1588px, 0px);
-    -o-transform: scale(0.3, 0.3) translate(-1588px, 0px);
-    transform: scale(0.3, 0.3) translate(-1588px, 0px);
+    -webkit-transform: scale(0.3, 0.3) translate(-1900px, 0px);
+    -moz-transform: scale(0.3, 0.3) translate(-1900px, 0px);
+    -ms-transform: scale(0.3, 0.3) translate(-1900px, 0px);
+    -o-transform: scale(0.3, 0.3) translate(-1900px, 0px);
+    transform: scale(0.3, 0.3) translate(-1900px, 0px);
+    -webkit-animation-timing-function: cubic-bezier(0.8, 0.24, 0.95, 0.59);
   }
-  30% {
+  38% {
     opacity: 0.6;
-    -webkit-transform: scale(0.3, 0.3) translate(-1088px, -685px);
-    -moz-transform: scale(0.3, 0.3) translate(-1088px, -685px);
-    -ms-transform: scale(0.3, 0.3) translate(-1088px, -685px);
-    -o-transform: scale(0.3, 0.3) translate(-1088px, -685px);
-    transform: scale(0.3, 0.3) translate(-1088px, -685px);
+    -webkit-transform: scale(0.3, 0.3) translate(-1188px, -800px);
+    -moz-transform: scale(0.3, 0.3) translate(-1188px, -800px);
+    -ms-transform: scale(0.3, 0.3) translate(-1188px, -800px);
+    -o-transform: scale(0.3, 0.3) translate(-1188px, -800px);
+    transform: scale(0.3, 0.3) translate(-1188px, -800px);
+    -webkit-animation-timing-function: cubic-bezier(0.18, 0.68, 0.3, 0.95);
   }
-  39% {
+  53% {
     opacity: 0.7;
     -webkit-transform: scale(0.3, 0.3) translate(-788px, 0px);
     -moz-transform: scale(0.3, 0.3) translate(-788px, 0px);
     -ms-transform: scale(0.3, 0.3) translate(-788px, 0px);
     -o-transform: scale(0.3, 0.3) translate(-788px, 0px);
     transform: scale(0.3, 0.3) translate(-788px, 0px);
+    -webkit-animation-timing-function: cubic-bezier(0.8, 0.24, 0.95, 0.59);
   }
-  47% {
+  65% {
     opacity: 0.7;
-    -webkit-transform: scale(0.3, 0.3) translate(-488px, -235px);
-    -moz-transform: scale(0.3, 0.3) translate(-488px, -235px);
-    -ms-transform: scale(0.3, 0.3) translate(-488px, -235px);
-    -o-transform: scale(0.3, 0.3) translate(-488px, -235px);
-    transform: scale(0.3, 0.3) translate(-488px, -235px);
+    -webkit-transform: scale(0.3, 0.3) translate(-488px, -435px);
+    -moz-transform: scale(0.3, 0.3) translate(-488px, -435px);
+    -ms-transform: scale(0.3, 0.3) translate(-488px, -435px);
+    -o-transform: scale(0.3, 0.3) translate(-488px, -435px);
+    transform: scale(0.3, 0.3) translate(-488px, -435px);
+    -webkit-animation-timing-function: cubic-bezier(0.18, 0.68, 0.3, 0.95);
   }
-  63% {
+  75% {
     opacity: 0.7;
     -webkit-transform: scale(0.3, 0.3) translate(0, 0);
     -moz-transform: scale(0.3, 0.3) translate(0, 0);
     -ms-transform: scale(0.3, 0.3) translate(0, 0);
     -o-transform: scale(0.3, 0.3) translate(0, 0);
     transform: scale(0.3, 0.3) translate(0, 0);
+    -webkit-animation-timing-function: cubic-bezier(0.8, 0.24, 0.95, 0.59);
   }
-  80% {
+  86% {
     opacity: 0.7;
     -webkit-transform: scale(0.3, 0.3) translate(0, 0);
     -moz-transform: scale(0.3, 0.3) translate(0, 0);
@@ -302,7 +312,7 @@ body {
   }
 }
 .img .data-img img.rotate-tran-show {
-  -webkit-animation: rtshow 1.5s ease-out;
+  -webkit-animation: rtshow 1.5s;
   animation-fill-mode: forwards;
 }
 .img .s-left {
