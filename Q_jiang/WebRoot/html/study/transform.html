@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+		<title>将输入的文本转换为数据库数据</title>
+		<style>
+			.content {
+				width: 700px;
+				height: 500px;
+				margin: 0 auto;
+			}
+			.output {
+				display: block;
+				width: 700px;
+				height: 300px;
+				border: 1px solid #666;
+				margin: 0 auto;
+				white-space:nowrap;
+				overflow:scroll;
+			}
+			.content textarea {
+				width: 100%;
+				height: 450px;
+				font-size: 15px;
+				line-height: 20px;
+			}
+			
+			.content a {
+				display: block;
+				text-decoration: none;
+				color: #fff;
+				width: 70px;
+				height: 35px;
+				line-height: 35px;
+				text-align: center;
+				background: #4185F3;
+				border-radius: 3px;
+				
+			}
+			a:hover {
+				background: #0061ff;
+			}
+			.keywords {
+				color: #357AE8;
+				font-weight: 700;
+			}
+			.odd {
+				display: block;
+				background: #ffe0e0;
+			}
+			.even {
+				display: block;
+			}
+			.string {
+				color: blue;
+			}
+			.comments {
+				color: #CCCCCC;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="content">
+			<textarea id="inputText"></textarea>
+			<a href="javascript:void(0)" id="inputButton">转换</a>
+		</div>
+		<textarea class="output" id="textTest">
+			
+		</textarea>
+	</body>
+	<script type="text/javascript" src="../../js/dep/jquery-1.11.1.js" ></script>
+	<script>
+	
+	
+		var ss = new Array([10]);
+		console.log(ss);
+	
+		
+		var arr = ["var", "function", "this", "console", "log", "return", "false", "true", "new",
+				   "null", "if", "else", "try", "catch", "typeof", "break"];
+		console.log(arr.join("|"));
+		var reg = /\b(var|function|this|console|log|return|false|true|new|null|if|else|try|catch|typeof|break)\b/g;
+		
+		$("#inputButton").on("click", function(){
+			var textInput = $("#inputText").val();
+			textInput = textInput.replace(/ /g, "&nbsp;&nbsp;");
+			textInput = textInput.replace(/\t/g, "&nbsp;&nbsp;&nbsp;&nbsp;");
+			var indexD = 0;
+			textInput = textInput.replace(/"/g, function($1){
+				var str = "";
+				if (indexD%2 === 0){
+					str = "<span class=string>" + $1;
+				} else {
+					str = $1 + "</span>";
+				}
+				indexD++;
+				return str;
+			});
+			var index = 0;
+			textInput = textInput.replace(/'/g, function($1){
+				var str = "";
+				if (index%2 === 0){
+					str = "<span class=string>" + $1;
+				} else {
+					str = $1 + "</span>";
+				}
+				index++;
+				return str;
+			});
+			
+			textInput = textInput.replace(/\/\/.*/g, function($1){
+				return "<span class=comments>" + $1 + "</span>";
+			});
+			
+			textInput = textInput.replace(reg, function($1){
+				return "<span class=keywords>"+$1+"</span>";
+			});
+			
+			var i = 1;
+			textInput = textInput.replace(/(.*\n)/g, function($1){
+				var cla = i%2 === 0 ? "even" : "odd";
+				i++;
+				return "<span class="+cla+">"+$1+"</span>";
+			});
+			textInput = textInput.replace(/\n/g, "");
+			$("#textTest").val(textInput);
+			console.log(textInput);
+		});
+		
+	
+	
+	
+	</script>
+</html>

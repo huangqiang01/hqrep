@@ -103,13 +103,6 @@
     -o-transform: translate(@x,@y);
     transform: translate(@x,@y);
 }
-.tran(@tran) {
-    -webkit-transition: @tran;
-    -moz-transition: @tran;
-    -ms-transition: @tran;
-    -o-transition: @tran;
-    transition: @tran;
-}
 // 缩放
 .scale(@x: 0,@y: 0){
     -webkit-transform: scale(@x,@y);
@@ -125,18 +118,6 @@
     -ms-transform: rotate(@x);
     -o-transform: rotate(@x);
     transform: rotate(@x);
-}
-.rotateO(@d: 0, @ox: 50%, @oy: 50%) {
-    -webkit-transform: rotate(@d);
-    -webkit-transform-origin: @ox @oy;
-    -moz-transform: rotate(@d);
-    -moz-transform-origin: @ox @oy;
-    -ms-transform: rotate(@d);
-    -ms-transform-origin: @ox @oy;
-    -o-transform: rotate(@d);
-    -o-transform-origin: @ox @oy;
-    transform: rotate(@d);
-    transform-origin: @ox @oy;
 }
 .rotatey(@y) {
     -webkit-transform: rotateY(@y);
@@ -155,7 +136,31 @@
 }
 
 
+.origin(@ox: 50%, @oy: 50%) {
+    -webkit-transform-origin: @ox @oy;
+    -moz-transform-origin: @ox @oy;
+    -ms-transform-origin: @ox @oy;
+    -o-transform-origin: @ox @oy;
+    transform-origin: @ox @oy;
+}
+.tran(@tran) {
+    -webkit-transition: @tran;
+    -moz-transition: @tran;
+    -ms-transition: @tran;
+    -o-transition: @tran;
+    transition: @tran;
+}
+
+
+
 // 动画
+.animatKey(@name) {
+    @-webkit-keyframes @arguments {};
+    @-moz-keyframes @arguments {};
+    @-ms-keyframes @arguments {};
+    @-o-keyframes @arguments {};
+    @keyframes @arguments {};
+}
 .animat(...) {
     -webkit-animation: @arguments;
     -moz-animation: @arguments;
@@ -163,13 +168,15 @@
     -o-animation: @arguments;
     animation: @arguments;
 }
-.animatKey(@name) {
-    @-webkit-keyframes @name {};
-    @-moz-keyframes @name {};
-    @-ms-keyframes @name {};
-    @-o-keyframes @name {};
-    @keyframes @name {};
+// 时间函数
+.animTim(@timing) {
+    -webkit-animation-timing-function: @timing;
+    -moz-animation-timing-function: @timing;
+    -ms-animation-timing-function: @timing;
+    -o-animation-timing-function: @timing;
+    animation-timing-function: @timing;
 }
+
 // 渐变
 .gradient(@startcolor: @orangeRed, @stopcolor: @lightOR) {
     background: @orangeRed;

@@ -1,17 +1,14 @@
 @charset "utf-8";
-
 @import "../constant";
-
-html,body {
+html,
+body {
     background: @bodybg;
     font-size: @allSize;
 }
-
 .page {
     .allXNW();
     margin-top: 20px;
 }
-
 .header {
     font-size: 0.14rem;
     a {
@@ -19,7 +16,7 @@ html,body {
     }
 }
 .article {
-    margin: 20px 0 20px;
+    margin: 20px 0;
     font-size: @commonSize;
     .shadow4();
     .radius();
@@ -33,11 +30,35 @@ html,body {
         }
         &>span {
             display: block;
-            margin: 5px;
+            padding: 5px 20px;
             border-bottom: 1px solid @orangeRed;
         }
     }
     .content {
-        line-height: 20px;
+        font-size: 0.16rem;
+        line-height: 26px;
     }
+}
+.keywords {
+    color: #357AE8;
+    font-weight: 700;
+}
+.odd {
+    display: block;
+    background: @fff;
+}
+.even {
+    display: block;
+}
+.string {
+    color: #1fa2a9;
+}
+.comments {
+    color: #a9a9a9;
+}
+.pre {
+    background: #fdd8c0;
+    margin: 5px 0;
+    line-height: 22px;
+    border: 3px solid #fdd8c0;
 }

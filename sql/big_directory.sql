@@ -19,9 +19,6 @@ insert into bannerImg values(0,'img/banner-2.jpg','Ìì¿Õ1','ÎÒ°®±±¾©Ìì°²ÃÅ£¬Ìì°²Ã
 insert into bannerImg values(0,'img/banner-3.jpg','Ìì¿Õ2','ÎÒ°®±±¾©Ìì°²ÃÅ£¬Ìì°²ÃÅÉÏÌ«ÑôÉı2','1','0','');
 
 
-
-
-
 /********Ïà¹Ø½éÉÜ********/
 create table presentations(
 	id int(4) primary key auto_increment,
@@ -54,7 +51,71 @@ create table websiteSuggest(
 	reserve varchar(80)
 );
 
+/***********ÄÚÈİ·ÖÀà************/
+create table classification(
+	id int(4) primary key auto_increment,
+	className varchar(40),
+	reserve varchar(80)
+);
+insert into classification values(0, '±Ê¼Ç', '');
+insert into classification values(0, 'Éú»î', '');
+insert into classification values(0, 'ÒµÓà', '');
+insert into classification values(0, 'ÆäËû', '');
+
+/**************ÄÚÈİÏµÁĞ·ÖÀà***************/
+create table seriesClass(
+	id int(4) primary key auto_increment,
+	classId int(4),
+	seriesName varchar(40),
+	reserve varchar(80)
+);
+insert into seriesClass values(0, 1, 'js', '');
+insert into seriesClass values(0, 1, 'css', '');
+insert into seriesClass values(0, 1, '×ÛºÏ', '');
+insert into seriesClass values(0, 2, '¼ÇÂ¼', '');
+insert into seriesClass values(0, 3, 'ÕĞÆ¸', '');
+insert into seriesClass values(0, 4, 'Õª³­', '');
 
 
-insert into websiteEvaluation values(0, )
+
+/**************Ñ§Ï°***************/
+create table studyTitle(
+	id int(4) primary key auto_increment,
+	classId int(4),
+	seriesId int(4),
+	contentListNo varchar(10),
+	textTital varchar(40),
+	sAbstract text,
+	releaseDate varchar(20),
+	zan varchar(10),
+	notesState varchar(10),
+	reserve varchar(80)
+);
+insert into studyTitle values(0, 1, 1, '', 'javascript Ö®Êı×é²Ù×÷', 'js´´½¨Êı¾İµÄ·½·¨ÓĞºÜ¶àÖÖ£ºvar arr = new Array();var arr = new Array([10]);var arr = new Array([1,2,3,4]);var arr = [];ÆäÖĞ×îºóÒ»ÖÖ·½·¨ÊÇ×î³£ÓÃµÄ£¬Ò²ÊÇ×î¼òµ¥µÄ¡£µ±È»£¬Êı×éµÄ¸³Öµ²»Ò»¶¨ÒªÔÚ´´½¨Êı×éµÄÊ±ºòÍê³É£¬ÒòÎªÊı×éµÄ³¤¶ÈÊÇ¿ÉÒÔ×ÔÔö³¤µÄ£¬ËùÒÔ¿ÉÒÔÔÚ´´½¨Íê³ÉºóÔÙ¸³Öµ£ºarr[0] = ¡°ÕÅÈı¡±;arr[1] = 2;ÒòÎªjavascript µÄÊı¾İÀàĞÍÎªÈõÀàĞÍ£¬ËùÒÔ£¬Êı×éÔÚ´æ´¢Êı¾İµÄÊ±ºò£¬Êı¾İÀàĞÍÊÇ¿ÉÒÔ»ìºÏ´æ´¢µÄ¡£¼´Ò»¸öÊı×éÀïÃæ¿ÉÒÔ´æNumber£¬String£¬Boolean£¬Object(JSON£¬Array...)£¬null£¬undefinedµÈµÈ¡£', '2016-07-15', '12', '', '');
+
+
+create table sContent(
+	id int(4) primary key auto_increment,
+	studyId int(4),
+	content text,
+	referencePoint text,
+	reserve varchar(80)
+);
+insert into sContent values(0, 1, '<p><strong>1.Êı×éµÄ´´½¨</strong></p><p>js´´½¨Êı¾İµÄ·½·¨ÓĞºÜ¶àÖÖ£º</p><p class="pre"><span class="odd"><span class="keywords">var</span>&nbsp;&nbsp;arr&nbsp;&nbsp;=&nbsp;&nbsp;<span class="keywords">new</span>&nbsp;&nbsp;Array();&nbsp;&nbsp;<span class=comments>//&nbsp;&nbsp;[]</span> </span><span class="even"><span class="keywords">var</span>&nbsp;&nbsp;arr&nbsp;&nbsp;=&nbsp;&nbsp;<span class="keywords">new</span>&nbsp;&nbsp;Array([10]);&nbsp;&nbsp;<span class=comments>//¶¨ÒåÒ»¸öÊı¾İµÄ³¤¶È,µ«²»ÊÇÉÏÏŞ</span> </span><span class="odd"><span class="keywords">var</span>&nbsp;&nbsp;arr&nbsp;&nbsp;=&nbsp;&nbsp;<span class="keywords">new</span>&nbsp;&nbsp;Array([1,2,3,4]);&nbsp;&nbsp;<span class=comments>//&nbsp;&nbsp;¶¨ÒåÓĞÖµµÄÊı×é</span> </span><span class="even"><span class="keywords">var</span>&nbsp;&nbsp;arr&nbsp;&nbsp;=&nbsp;&nbsp;[];&nbsp;&nbsp;<span class=comments>//&nbsp;&nbsp;Ö±½Ó¶¨ÒåÒ»¸öÊı×é£¬Ò²¿ÉÒÔ¸³Öµ³õÊ¼²ÎÊı£ºvar&nbsp;&nbsp;arr&nbsp;&nbsp;=&nbsp;&nbsp;[1,2,3];</span> </span></p><p>ÆäÖĞ×îºóÒ»ÖÖ·½·¨ÊÇ×î³£ÓÃµÄ£¬Ò²ÊÇ×î¼òµ¥µÄ¡£µ±È»£¬Êı×éµÄ¸³Öµ²»Ò»¶¨ÒªÔÚ´´½¨Êı×éµÄÊ±ºòÍê³É£¬ÒòÎªÊı×éµÄ³¤¶ÈÊÇ¿ÉÒÔ×ÔÔö³¤µÄ£¬ËùÒÔ¿ÉÒÔÔÚ´´½¨Íê³ÉºóÔÙ¸³Öµ£º</p><p class="pre"><span class="odd">arr[0]&nbsp;&nbsp;=&nbsp;&nbsp;¡°ÕÅÈı¡±;&nbsp;&nbsp;<span class=comments>//&nbsp;&nbsp;[¡°ÕÅÈı¡±]</span> </span><span class="even">arr[1]&nbsp;&nbsp;=&nbsp;&nbsp;2;&nbsp;&nbsp;<span class=comments>//&nbsp;&nbsp;[¡°ÕÅÈı¡±,&nbsp;&nbsp;2]</span> </span></p><p>ÒòÎªjavascript µÄÊı¾İÀàĞÍÎªÈõÀàĞÍ£¬ËùÒÔ£¬Êı×éÔÚ´æ´¢Êı¾İµÄÊ±ºò£¬Êı¾İÀàĞÍÊÇ¿ÉÒÔ»ìºÏ´æ´¢µÄ¡£¼´Ò»¸öÊı×éÀïÃæ¿ÉÒÔ´æNumber£¬String£¬Boolean£¬Object(JSON£¬Array...)£¬null£¬undefinedµÈµÈ¡£</p><p><strong>2.Êı×éµÄÈ¡Öµ</strong></p><p>Êı×é×î³£ÓÃµÄÈ¡Öµ·½Ê½¾ÍÊÇÍ¨¹ıkeyÈ¥È¡¶ÔÓ¦µÄÖµ£¬</p><p class="pre"><span class="odd"><span class="keywords">var</span>&nbsp;&nbsp;names&nbsp;&nbsp;=&nbsp;&nbsp;[<span class=string>"ÕÅÈı"</span>,&nbsp;&nbsp;<span class=string>"ÀîËÄ"</span>,&nbsp;&nbsp;<span class=string>"Íõ¶ş"</span>,&nbsp;&nbsp;<span class=string>"Âé×Ó"</span>]; </span><span class="even"><span class="keywords">var</span>&nbsp;&nbsp;name&nbsp;&nbsp;=&nbsp;&nbsp;names[0];&nbsp;&nbsp;<span class=comments>//&nbsp;&nbsp;ÕÅÈı</span> </span><span class="odd"><span class="keywords">var</span>&nbsp;&nbsp;name&nbsp;&nbsp;=&nbsp;&nbsp;names[2];&nbsp;&nbsp;<span class=comments>//&nbsp;&nbsp;Íõ¶ş</span> </span></p><p>µ±È»£¬ÕâÊÇÔÚÄãÖªµÀÖµÔÚÄÄ¸öÎ»ÖÃµÄÇé¿öÏÂ½øĞĞµÄ²Ù×÷¡£Èç¹ûÏÖÔÚ¸øÄãÒ»¸öÎ´ÖªµÄÊı×é£¬ÀïÃæÓĞÄÄĞ©Öµ£¬ÄãÈ«È»²»Öª£¬ÄÇÓ¦¸ÃÔõÑùÈ¡µ½ÄãÏëÒªµÄÖµÁË£¿Äª»Å£¬½ÓÏÂÀ´£¬ÎÒÃÇ¾ÍÀ´¿´¿´¡£¼ÙÈç£¬ÄãÒª´ÓÒ»¸öÎ´ÖªµÄÊı×éÖĞÈ¡³ö¡°ÀîËÄ¡±µÄÎ»ÖÃ£º</p><p class="pre"><span class="odd"><span class=comments>//&nbsp;&nbsp;var&nbsp;&nbsp;names&nbsp;&nbsp;=&nbsp;&nbsp;["ÕÅÈı",&nbsp;&nbsp;"ÀîËÄ",&nbsp;&nbsp;"Íõ¶ş",&nbsp;&nbsp;"Âé×Ó"];</span> </span><span class="even"><span class="keywords">var</span>&nbsp;&nbsp;&nbsp;&nbsp;namesLength&nbsp;&nbsp;=&nbsp;&nbsp;names.length, </span><span class="odd">&nbsp;&nbsp;&nbsp;&nbsp;index&nbsp;&nbsp;=&nbsp;&nbsp;0; </span><span class="even">for(<span class="keywords">var</span>&nbsp;&nbsp;i&nbsp;&nbsp;=&nbsp;&nbsp;0;&nbsp;&nbsp;i&nbsp;&nbsp;<&nbsp;&nbsp;namesLength;&nbsp;&nbsp;i++){ </span><span class="odd">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">if</span>&nbsp;&nbsp;(names[i]&nbsp;&nbsp;===&nbsp;&nbsp;<span class=string>"ÀîËÄ"</span>){ </span><span class="even">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index&nbsp;&nbsp;=&nbsp;&nbsp;i; </span><span class="odd">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">break</span>; </span><span class="even">&nbsp;&nbsp;&nbsp;&nbsp;} </span><span class="odd">} </span><span class="even"><span class="keywords">console</span>.<span class="keywords">log</span>(index);&nbsp;&nbsp;<span class=comments>//&nbsp;&nbsp;1</span> </span><span class=comments>//&nbsp;&nbsp;Ê¹ÓÃfor...in..±éÀúÊı×é£¬Ò²»áµÃµ½Í¬ÑùµÄĞ§¹û</span></p>', '', '');
+
+
+
+select textTital,releaseDate,zan,content,referencePoint from studyTitle as st inner join sContent as sc on st.id=sc.studyId where sc.id=1;
+
+
+
+
+
+
+
+
+
+
+
+
 

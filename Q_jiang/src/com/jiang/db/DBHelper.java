@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Vector;
 
 /**
  * 
@@ -20,31 +21,60 @@ public class DBHelper {
 	
 	private final static String user = "root";
 	
+//	private final static String password = "tqyhq2@db";// 生产修改
 	private final static String password = "root";// 生产修改
-	
-	private Connection conn = null;
 	
 	public PreparedStatement pst = null;
 	
-	public DBHelper(String sql){
-		try {
-			// 指定连接类型
-			Class.forName(driver);
-			// 获取连接
-			conn = DriverManager.getConnection(url, user, password);
-			// 准备执行语句
-			pst = conn.prepareStatement(sql);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
+	private static final Vector pool = new Vector();
+	private static final int MAX_SIZE = 10;
+	private static final int MIN_SIZE = 3;
+	
+	private static Connection ceateConnection() throws ClassNotFoundException, SQLException{
+		Connection conn = null;
+		// 指定连接类型
+		Class.forName(driver);
+		// 获取连接
+		conn = DriverManager.getConnection(url, user, password);
+		
+		return conn;
+	}
+	static {
+		for(int i = 0; i < MIN_SIZE; i++){
+			try {
+				pool.add(ceateConnection());
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+			}
 		}
 	}
 	
-	public void DBclose(){
+	public static synchronized Connection getConn() throws ClassNotFoundException, SQLException{
+		Connection conn = null;
+		if (pool.isEmpty()){
+			conn = ceateConnection();
+		} else {
+			int last_id = pool.size() - 1;
+			conn = (Connection) pool.get(last_id);
+			pool.remove(conn);
+		}
+		return conn;
+	}
+	
+	public static synchronized void close(Connection conn) throws SQLException{
+		if (pool.size() < MAX_SIZE){
+			pool.add(conn);
+		} else {
+			conn.close();
+		}
+	}
+	
+	public DBHelper(String sql){
 		try {
-			this.conn.close();
-			this.pst.close();
-		} catch (SQLException e) {
+			// 准备执行语句
+			pst = getConn().prepareStatement(sql);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

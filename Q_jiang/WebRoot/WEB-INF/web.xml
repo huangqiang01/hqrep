@@ -5,14 +5,65 @@
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
   <servlet>
-    <servlet-name>ReceiveServlet</servlet-name>
-    <servlet-class>com.jiang.servlet.ReceiveServlet</servlet-class>
+    <servlet-name>Servlet10000</servlet-name>
+    <servlet-class>com.jiang.servlet.Servlet10000</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Servlet10001</servlet-name>
+    <servlet-class>com.jiang.servlet.Servlet10001</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Servlet10002</servlet-name>
+    <servlet-class>com.jiang.servlet.Servlet10002</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Servlet10003</servlet-name>
+    <servlet-class>com.jiang.servlet.Servlet10003</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Servlet10100</servlet-name>
+    <servlet-class>com.jiang.servlet.Servlet10100</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Servlet10101</servlet-name>
+    <servlet-class>com.jiang.servlet.Servlet10101</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Servlet10102</servlet-name>
+    <servlet-class>com.jiang.servlet.Servlet10102</servlet-class>
   </servlet>
   
   
   <servlet-mapping>
-    <servlet-name>ReceiveServlet</servlet-name>
-    <url-pattern>/receiveServlet</url-pattern>
+    <servlet-name>Servlet10102</servlet-name>
+    <url-pattern>/10102</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet10101</servlet-name>
+    <url-pattern>/10101</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet10100</servlet-name>
+    <url-pattern>/10100</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet10003</servlet-name>
+    <url-pattern>/10003</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Servlet10002</servlet-name>
+    <url-pattern>/10002</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Servlet10001</servlet-name>
+    <url-pattern>/10001</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Servlet10000</servlet-name>
+    <url-pattern>/10000</url-pattern>
   </servlet-mapping>
   
   

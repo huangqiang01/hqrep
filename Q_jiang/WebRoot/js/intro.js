@@ -4,7 +4,7 @@ var allIntro = {},
 
 
 var param = {
-	funNo: "1001"
+	funNo: "10001"
 };
 
 Qutils.Qget(param, function(data){

@@ -18,13 +18,13 @@ body {
   background: #ff6600;
 }
 .content {
-  padding: 0 10px 14px;
+  padding: 0 0 14px;
   background: #ffffff;
 }
 .img {
   position: relative;
   margin-top: 14px;
-  padding: 10px;
+  padding: 10px 0;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -61,18 +61,8 @@ body {
   font-size: 0.12rem;
 }
 .img img {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
-  -webkit-box-shadow: 4px 4px 2px #cccccc;
-  -moz-box-shadow: 4px 4px 2px #cccccc;
-  -ms-box-shadow: 4px 4px 2px #cccccc;
-  -o-box-shadow: 4px 4px 2px #cccccc;
-  box-shadow: 4px 4px 2px #cccccc;
   display: block;
-  width: 70%;
+  width: 100%;
 }
 .img span {
   display: block;

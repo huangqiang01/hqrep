@@ -18,9 +18,7 @@ if (typeof jQuery === "undefined") {
 
 		// ajax请求参数
 		ajaxs = {
-			url: "/Q_jiang/receiveServlet?num=" + Math.random(), // 生产修改
 			timeout: 1000 * 60,
-			async: true,
 			dataType: "json",
 			beforeSend: null,
 			complete: null,
@@ -106,24 +104,51 @@ if (typeof jQuery === "undefined") {
 			return Aes.Ctr.decrypt(window.localStorage[key], pas_key, 256);
 		},
 
-		/**
-		 * ajax 提交数据
-		 */
-		Qpost: function(param, success) {
-			ajaxs.type = "post";
-			ajaxs.success = success;
-			ajaxs.data = param;
-			$.ajax(ajaxs);
+//		/**
+//		 * ajax 提交数据
+//		 */
+//		Qpost: function(param, success) {
+//			var ajaxP = {
+////				url: "/" + param.funNo + "?num=" + Math.random(), // 生产修改
+//				url: "/Q_jiang/" + param.funNo + "?num=" + Math.random(), // 生产修改
+//				type: "post",
+//				success: success,
+//				data: param
+//			};
+//			$.ajax($.extend(ajaxs, ajaxP));
+//		},
+//		
+//		/**
+//		 * ajax 查询数据
+//		 */
+//		Qget: function(param, success) {
+//			var ajaxP = {
+////				url: "/" + param.funNo + "?num=" + Math.random(), // 生产修改
+//				url: "/Q_jiang/" + param.funNo + "?num=" + Math.random(), // 生产修改
+//				type: "get",
+//				success: success,
+//				data: param
+//			};
+//			$.ajax($.extend(ajaxs, ajaxP));
+//		},
+		
+		Qajax: function(param, success, aJson){
+			var ajaxP = {
+//				url: "/" + param.funNo + "?num=" + Math.random(), // 生产修改
+				url: "/Q_jiang/" + param.funNo + "?num=" + Math.random(), // 生产修改
+				async: true,
+				type: "post",
+				success: success,
+				data: param
+			};
+			var s = ajaxs;
+			var ss = $.extend(ajaxs, ajaxP);
+			var sss = $.extend(ajaxs, ajaxP, aJson);
+			$.ajax($.extend(ajaxs, ajaxP, aJson));
 		},
-		/**
-		 * ajax 查询数据
-		 */
-		Qget: function(param, success) {
-			ajaxs.type = "get";
-			ajaxs.success = success;
-			ajaxs.data = param;
-			$.ajax(ajaxs);
-		},
+		
+		
+		
 
 		/**
 		 * 获取当前时间，并将格式转化为yyyy-MM-dd DD:mm:ss

@@ -11,7 +11,6 @@ var $nowTime = $("#nowTime"),
 // 获取留言
 getNewMessage();
 
-
 // 时间刷新
 $nowTime.text(formatDate());
 setInterval(function(){
@@ -46,10 +45,10 @@ $submitI.on("click", function(e){
  */
 function getNewMessage(){
 	var param = {
-		funNo: "1003",
+		funNo: "10003",
 		startPage: nowPage
 	};
-	Qutils.Qget(param, function(data){
+	Qutils.Qajax(param, function(data){
 		var results = Qutils.checkData(data),
 			res_lenth = results && results.length,
 			str = "";
@@ -58,7 +57,7 @@ function getNewMessage(){
 			str += "<div class='evaluate'><p class='name'>" + item.edate + " " + item.etime + "</span><p class='neirong'> "+item.evalContent+"</p></div>";
 		}
 		$(".intro-content").html(str);
-	});
+	}, {type: "get"});
 	
 }
 
@@ -101,14 +100,14 @@ function twoDigit(digit){
 function submitContent(text){
 	var arrT = $nowTime.text().split(" "),
 		param = {
-			funNo: "1002",
+			funNo: "10002",
 			date: arrT[0],
 			time: arrT[1],
 			subMark: subMark,
 			text: text
 		}
 		
-	Qutils.Qpost(param, function(data){
+	Qutils.Qajax(param, function(data){
 		alert(data.error_info);
 		if (data.error_no === "0"){
 			$text.val("");

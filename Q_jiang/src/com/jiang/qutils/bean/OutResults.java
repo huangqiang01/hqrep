@@ -1,4 +1,4 @@
-package com.jiang.qutils;
+package com.jiang.qutils.bean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +35,11 @@ public class OutResults {
 		return error_info;
 	}
 	public void setError_info(String error_info) {
+		this.error_info = error_info;
+	}
+	
+	public void setError_info_no(String error_no, String error_info) {
+		this.error_no = error_no;
 		this.error_info = error_info;
 	}
 }
