@@ -21,8 +21,8 @@ public class DBHelper {
 	
 	private final static String user = "root";
 	
-//	private final static String password = "tqyhq2@db";// 生产修改
-	private final static String password = "root";// 生产修改
+	private final static String password = "tqyhq2@db";// 生产修改
+//	private final static String password = "root";// 生产修改
 	
 	public PreparedStatement pst = null;
 	

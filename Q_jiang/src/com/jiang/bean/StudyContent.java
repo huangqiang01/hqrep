@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class StudyContent implements Serializable {
 	
+	private static final long serialVersionUID = -6255188131118888133L;
 	private String textTital;
 	private String releaseDate;
 	private String zan;

@@ -13,7 +13,7 @@ var defaultLocation = ["init0", "init1", "init2"],
 	hideEffect = ["rotate-tran-hide", "opacity-hide", "translate-hide"];
 
 // 获取首页最新评价
-showNewSugg();
+//showNewSugg();
 // 获取首页推荐文章
 getRecommendContent();
 // 获取首页banner图片
@@ -37,21 +37,64 @@ Qutils.Qajax(param, function(data) {
 	}
 }, {type: "get"});
 
-$(".neirong .title>a").on("click", function(e) {
-	Qutils.goPage("html/study/stcontent");
-	e.stopPropagation();
-});
-
 /**
  * 获取首页推荐的内容
  */
 function getRecommendContent(){
+	var param = {
+		funNo: "10101"
+	}
+	Qutils.Qajax(param, function(data){
+		var results = Qutils.checkData(data),
+			res_length = results.length,
+			str = "";
+		if (res_length > 0){
+			for(var i = 0; i < res_length; i++){
+				var item = results[i];
+				str += "<div class='lan'><span class='title'><a href='javascript:void(0)' data-id="+item.id+">"+item.textTital+"</a><em>"+item.releaseDate+"</em></span>";
+				str += "<div class='article'><p>"+item.sAbstract+"</p></div><ul class='clearfix'>";
+				str += "<li><a href='javascript:void(0)' class='zan' data-id="+item.id+">赞(<e>"+item.zan+"</e>)</a></li><li><a href='javascript:void(0)' class='addpin' data-id="+item.id+">插一脚</a></li>";
+				str += "<li><a href='javascript:void(0)' class='report' data-id="+item.id+">举报</a></li></ul></div>";
+			}
+		}
+		$(".neirong").html(str);
+		// 点击
+		bindListClick();
+	}, {type: "get"});
 	
 }
 
-
-
-
+/**
+ * 绑定推荐点击事件
+ */
+function bindListClick(){
+	// title
+	$(".neirong .title>a").on("click", function(e) {
+		var id = $(this).attr("data-id");
+		Qutils.goPage("html/study/stcontent", {id: id});
+		e.stopPropagation();
+	});
+	// 赞
+	$(".zan").on("click", function(e) {
+		var $this = $(this),
+			id = $this.attr("data-id");
+		// 点赞
+		addZan(id, $this);
+		e.stopPropagation();
+	});
+	// 插一脚
+	$(".addpin").on("click", function(e) {
+		var id = $(this).attr("data-id");
+//		Qutils.goPage("html/study/stcontent", {id: id});
+		e.stopPropagation();
+	});
+	// 举报
+	$(".report").on("click", function(e) {
+		var id = $(this).attr("data-id");
+//		Qutils.goPage("html/study/stcontent", {id: id});
+		e.stopPropagation();
+	});
+}
 
 /**
  * 判断图片是否加载完成
@@ -201,4 +244,23 @@ function showNewSugg() {
 			e.stopPropagation();
 		});
 	}, {type: "get"});
+}
+
+/**
+ * 点赞
+ */
+function addZan(id, $this){
+	var param = {
+		funNo: "10300",
+		id: id
+	}
+	Qutils.Qajax(param, function(data){
+		if (data.error_no === "0"){
+			var $e = $this.find("e"),
+				zan = +$e.html();
+			$e.html(zan + 1);
+		} else {
+			alert(error_info);
+		}
+	});
 }

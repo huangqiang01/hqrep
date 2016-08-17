@@ -78,38 +78,48 @@
 	
 		
 		var arr = ["var", "function", "this", "console", "log", "return", "false", "true", "new",
-				   "null", "if", "else", "try", "catch", "typeof", "break"];
+				   "null", "if", "else", "try", "catch", "typeof", "break", "?"];
 		console.log(arr.join("|"));
-		var reg = /\b(var|function|this|console|log|return|false|true|new|null|if|else|try|catch|typeof|break)\b/g;
+		var reg = /\b(var|function|this|console|log|return|false|true|new|null|if|else|try|catch|typeof|break|\?)\b/g;
 		
 		$("#inputButton").on("click", function(){
 			var textInput = $("#inputText").val();
+			textInput = textInput.replace(/</g, "&lt");
+			textInput = textInput.replace(/>/g, "&gt");
 			textInput = textInput.replace(/ /g, "&nbsp;&nbsp;");
 			textInput = textInput.replace(/\t/g, "&nbsp;&nbsp;&nbsp;&nbsp;");
 			var indexD = 0;
 			textInput = textInput.replace(/"/g, function($1){
-				var str = "";
+				var str = "",
+					_$1 = "&quot;";
 				if (indexD%2 === 0){
-					str = "<span class=string>" + $1;
+					str = "<span class=string>" + _$1;
 				} else {
-					str = $1 + "</span>";
+					str = _$1 + "</span>";
 				}
 				indexD++;
 				return str;
 			});
 			var index = 0;
 			textInput = textInput.replace(/'/g, function($1){
-				var str = "";
+				var str = "",
+					_$1 = "&apos;";
 				if (index%2 === 0){
-					str = "<span class=string>" + $1;
+					str = "<span class=string>" + _$1;
 				} else {
-					str = $1 + "</span>";
+					str = _$1 + "</span>";
 				}
 				index++;
 				return str;
 			});
 			
 			textInput = textInput.replace(/\/\/.*/g, function($1){
+				return "<span class=comments>" + $1 + "</span>";
+			});
+			textInput = textInput.replace(/\/\*\*.*/g, function($1){
+				return "<span class=comments>" + $1 + "</span>";
+			});
+			textInput = textInput.replace(/\*.*/g, function($1){
 				return "<span class=comments>" + $1 + "</span>";
 			});
 			
@@ -123,13 +133,10 @@
 				i++;
 				return "<span class="+cla+">"+$1+"</span>";
 			});
-			textInput = textInput.replace(/\n/g, "");
+			textInput = textInput.replace(/\n/g, "&nbsp;");
 			$("#textTest").val(textInput);
 			console.log(textInput);
 		});
-		
-	
-	
 	
 	</script>
 </html>

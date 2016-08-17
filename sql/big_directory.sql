@@ -91,8 +91,9 @@ create table studyTitle(
 	notesState varchar(10),
 	reserve varchar(80)
 );
-insert into studyTitle values(0, 1, 1, '', 'javascript 之数组操作', 'js创建数据的方法有很多种：var arr = new Array();var arr = new Array([10]);var arr = new Array([1,2,3,4]);var arr = [];其中最后一种方法是最常用的，也是最简单的。当然，数组的赋值不一定要在创建数组的时候完成，因为数组的长度是可以自增长的，所以可以在创建完成后再赋值：arr[0] = “张三”;arr[1] = 2;因为javascript 的数据类型为弱类型，所以，数组在存储数据的时候，数据类型是可以混合存储的。即一个数组里面可以存Number，String，Boolean，Object(JSON，Array...)，null，undefined等等。', '2016-07-15', '12', '', '');
-
+insert into studyTitle values(0, 1, 1, '', '我爱北京天安门,天安门上太阳升', '我爱北京天安门，天安门上太阳升，伟大领袖毛主席，指引我们向前进，我爱北京天安门，天安门上太阳升，伟大领袖毛主席，指引我们向前进。', '2016-07-15', '12', '', '');
+insert into studyTitle values(0, 1, 1, '0', '我爱北京天安门,天安门上太阳升1', '', '2016-07-15', '12', '', '');
+insert into studyTitle values(0, 1, 1, '2', '我爱北京天安门,天安门上太阳升2', '111111111我爱北京天安门，天安门上太阳升，伟大领袖毛主席，指引我们向前进，我爱北京天安门，天安门上太阳升，伟大领袖毛主席，指引我们向前进。', '2016-07-15', '12', '', '');
 
 create table sContent(
 	id int(4) primary key auto_increment,
@@ -101,11 +102,60 @@ create table sContent(
 	referencePoint text,
 	reserve varchar(80)
 );
-insert into sContent values(0, 1, '<p><strong>1.数组的创建</strong></p><p>js创建数据的方法有很多种：</p><p class="pre"><span class="odd"><span class="keywords">var</span>&nbsp;&nbsp;arr&nbsp;&nbsp;=&nbsp;&nbsp;<span class="keywords">new</span>&nbsp;&nbsp;Array();&nbsp;&nbsp;<span class=comments>//&nbsp;&nbsp;[]</span> </span><span class="even"><span class="keywords">var</span>&nbsp;&nbsp;arr&nbsp;&nbsp;=&nbsp;&nbsp;<span class="keywords">new</span>&nbsp;&nbsp;Array([10]);&nbsp;&nbsp;<span class=comments>//定义一个数据的长度,但不是上限</span> </span><span class="odd"><span class="keywords">var</span>&nbsp;&nbsp;arr&nbsp;&nbsp;=&nbsp;&nbsp;<span class="keywords">new</span>&nbsp;&nbsp;Array([1,2,3,4]);&nbsp;&nbsp;<span class=comments>//&nbsp;&nbsp;定义有值的数组</span> </span><span class="even"><span class="keywords">var</span>&nbsp;&nbsp;arr&nbsp;&nbsp;=&nbsp;&nbsp;[];&nbsp;&nbsp;<span class=comments>//&nbsp;&nbsp;直接定义一个数组，也可以赋值初始参数：var&nbsp;&nbsp;arr&nbsp;&nbsp;=&nbsp;&nbsp;[1,2,3];</span> </span></p><p>其中最后一种方法是最常用的，也是最简单的。当然，数组的赋值不一定要在创建数组的时候完成，因为数组的长度是可以自增长的，所以可以在创建完成后再赋值：</p><p class="pre"><span class="odd">arr[0]&nbsp;&nbsp;=&nbsp;&nbsp;“张三”;&nbsp;&nbsp;<span class=comments>//&nbsp;&nbsp;[“张三”]</span> </span><span class="even">arr[1]&nbsp;&nbsp;=&nbsp;&nbsp;2;&nbsp;&nbsp;<span class=comments>//&nbsp;&nbsp;[“张三”,&nbsp;&nbsp;2]</span> </span></p><p>因为javascript 的数据类型为弱类型，所以，数组在存储数据的时候，数据类型是可以混合存储的。即一个数组里面可以存Number，String，Boolean，Object(JSON，Array...)，null，undefined等等。</p><p><strong>2.数组的取值</strong></p><p>数组最常用的取值方式就是通过key去取对应的值，</p><p class="pre"><span class="odd"><span class="keywords">var</span>&nbsp;&nbsp;names&nbsp;&nbsp;=&nbsp;&nbsp;[<span class=string>"张三"</span>,&nbsp;&nbsp;<span class=string>"李四"</span>,&nbsp;&nbsp;<span class=string>"王二"</span>,&nbsp;&nbsp;<span class=string>"麻子"</span>]; </span><span class="even"><span class="keywords">var</span>&nbsp;&nbsp;name&nbsp;&nbsp;=&nbsp;&nbsp;names[0];&nbsp;&nbsp;<span class=comments>//&nbsp;&nbsp;张三</span> </span><span class="odd"><span class="keywords">var</span>&nbsp;&nbsp;name&nbsp;&nbsp;=&nbsp;&nbsp;names[2];&nbsp;&nbsp;<span class=comments>//&nbsp;&nbsp;王二</span> </span></p><p>当然，这是在你知道值在哪个位置的情况下进行的操作。如果现在给你一个未知的数组，里面有哪些值，你全然不知，那应该怎样取到你想要的值了？莫慌，接下来，我们就来看看。假如，你要从一个未知的数组中取出“李四”的位置：</p><p class="pre"><span class="odd"><span class=comments>//&nbsp;&nbsp;var&nbsp;&nbsp;names&nbsp;&nbsp;=&nbsp;&nbsp;["张三",&nbsp;&nbsp;"李四",&nbsp;&nbsp;"王二",&nbsp;&nbsp;"麻子"];</span> </span><span class="even"><span class="keywords">var</span>&nbsp;&nbsp;&nbsp;&nbsp;namesLength&nbsp;&nbsp;=&nbsp;&nbsp;names.length, </span><span class="odd">&nbsp;&nbsp;&nbsp;&nbsp;index&nbsp;&nbsp;=&nbsp;&nbsp;0; </span><span class="even">for(<span class="keywords">var</span>&nbsp;&nbsp;i&nbsp;&nbsp;=&nbsp;&nbsp;0;&nbsp;&nbsp;i&nbsp;&nbsp;<&nbsp;&nbsp;namesLength;&nbsp;&nbsp;i++){ </span><span class="odd">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">if</span>&nbsp;&nbsp;(names[i]&nbsp;&nbsp;===&nbsp;&nbsp;<span class=string>"李四"</span>){ </span><span class="even">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index&nbsp;&nbsp;=&nbsp;&nbsp;i; </span><span class="odd">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">break</span>; </span><span class="even">&nbsp;&nbsp;&nbsp;&nbsp;} </span><span class="odd">} </span><span class="even"><span class="keywords">console</span>.<span class="keywords">log</span>(index);&nbsp;&nbsp;<span class=comments>//&nbsp;&nbsp;1</span> </span><span class=comments>//&nbsp;&nbsp;使用for...in..遍历数组，也会得到同样的效果</span></p>', '', '');
+insert into sContent values(0, 1, '1970年9月这首歌发表在上海出版的《红小兵歌曲》上，1971年由中央人民广播电台播出，1972年中央新闻电影制片厂拍摄的北京“五一”游园会专题文艺节目把《我爱北京天安门》搬上银幕，随后录制了唱片，1972年，被编入国务院文艺组主编的《战地新歌》第一辑。歌曲越唱越红，被编成各种版本的儿童舞蹈。后来被改编成各种样式、体裁的乐曲（如手风琴、木琴独奏曲等）。1981年被辑入广东花城出版社《抒情歌曲集》。', '', '');
+insert into sContent values(0, 2, '这首儿歌经反复使用、加工而成为歌诵性抒情歌曲中的标志性作品，进入了代表那个时代精神的经典作品的行列。美国总统里根访华前，美国艺术团在北京演出的第一个合唱节目，就是《我爱北京天安门》。', '', '');
+insert into sContent values(0, 3, '1970年9月这首歌发表在上海出版的《红小兵歌曲》上，1971年由中央人民广播电台播出，1972年中央新闻电影制片厂拍摄的北京“五一”游园会专题文艺节目把《我爱北京天安门》搬上银幕，随后录制了唱片，1972年，被编入国务院文艺组主编的《战地新歌》第一辑。歌曲越唱越红，被编成各种版本的儿童舞蹈。后来被改编成各种样式、体裁的乐曲（如手风琴、木琴独奏曲等）。1981年被辑入广东花城出版社《抒情歌曲集》。这首儿歌经反复使用、加工而成为歌诵性抒情歌曲中的标志性作品，进入了代表那个时代精神的经典作品的行列。美国总统里根访华前，美国艺术团在北京演出的第一个合唱节目，就是《我爱北京天安门》。金月苓文革后（1977年）就读于中央音乐学院，与谭盾、陈佐湟等日后成为著名作曲家、指挥家的学生同学，毕业后任中国唱片公司上海公司音乐编辑。据1999年的报道，金月苓已创作有各类抒情歌曲二、三百首，其中一些作品获得全国音乐比赛的各种奖项。', '', '');
 
 
 
 select textTital,releaseDate,zan,content,referencePoint from studyTitle as st inner join sContent as sc on st.id=sc.studyId where sc.id=1;
+
+/**************照片***************/
+create table photo(
+	id int(4) primary key auto_increment,
+	classId int,
+	imgName varchar(40),
+	shotTypes varchar(40),
+	imgInfo varchar(40),
+	imgUrl varchar(100),
+	imgWidth varchar(10),
+	imgHeight varchar(10),
+	imgDate varchar(20),
+	imgTime varchar(20),
+	introduce text,
+	isShow varchar(4),
+	reserve varchar(80)
+);
+
+insert into photo values(0, 0, '小树', '手机', 'f/10.0, 1/125s, ISO:200', '../../photo/sapling.jpg', '960', '640', '2016-07-15', '10:09:45', '清晨的小树，在阳关的照射下，绿油油的', '1', '');
+insert into photo values(0, 0, '清晨', '手机', 'f/4.5, 1/2s, ISO:100', '../../photo/morning.jpg', '960', '720', '2016-07-15', '05:45:45', '海滩的清晨，太阳将冲出层层乌云，放出万丈光芒', '0', '');
+insert into photo values(0, 0, '小玩具', '相机', 'f/16.0, 1/4s, ISO:250', '../../photo/plaything.jpg', '960', '640', '2016-08-15', '10:10:45', '微笑的玩具，真可爱', '1', '');
+insert into photo values(0, 0, '小树', '手机', 'f/10.0, 1/125s, ISO:200', '../../photo/sapling.jpg', '960', '640', '2016-07-15', '10:09:45', '清晨的小树，在阳关的照射下，绿油油的', '1', '');
+insert into photo values(0, 0, '清晨', '手机', 'f/4.5, 1/2s, ISO:100', '../../photo/morning.jpg', '960', '720', '2016-07-15', '05:45:45', '海滩的清晨，太阳将冲出层层乌云，放出万丈光芒', '1', '');
+insert into photo values(0, 0, '小玩具', '相机', 'f/16.0, 1/4s, ISO:250', '../../photo/plaything.jpg', '960', '640', '2016-08-15', '10:10:45', '微笑的玩具，真可爱', '1', '');
+insert into photo values(0, 0, '小玩具', '相机', 'f/16.0, 1/4s, ISO:250', '../../photo/plaything.jpg', '960', '640', '2016-08-15', '10:10:45', '微笑的玩具，真可爱', '1', '');
+insert into photo values(0, 0, '小树', '手机', 'f/10.0, 1/125s, ISO:200', '../../photo/sapling.jpg', '960', '640', '2016-07-15', '10:09:45', '清晨的小树，在阳关的照射下，绿油油的', '1', '');
+insert into photo values(0, 0, '清晨', '手机', 'f/4.5, 1/2s, ISO:100', '../../photo/morning.jpg', '960', '720', '2016-07-15', '05:45:45', '海滩的清晨，太阳将冲出层层乌云，放出万丈光芒', '1', '');
+insert into photo values(0, 0, '小玩具', '相机', 'f/16.0, 1/4s, ISO:250', '../../photo/plaything.jpg', '960', '640', '2016-08-15', '10:10:45', '微笑的玩具，真可爱', '1', '');
+insert into photo values(0, 0, '小玩具', '相机', 'f/16.0, 1/4s, ISO:250', '../../photo/plaything.jpg', '960', '640', '2016-08-15', '10:10:45', '微笑的玩具，真可爱', '1', '');
+insert into photo values(0, 0, '小树', '手机', 'f/10.0, 1/125s, ISO:200', '../../photo/sapling.jpg', '960', '640', '2016-07-15', '10:09:45', '清晨的小树，在阳关的照射下，绿油油的', '1', '');
+insert into photo values(0, 0, '清晨', '手机', 'f/4.5, 1/2s, ISO:100', '../../photo/morning.jpg', '960', '720', '2016-07-15', '05:45:45', '海滩的清晨，太阳将冲出层层乌云，放出万丈光芒', '1', '');
+insert into photo values(0, 0, '小玩具', '相机', 'f/16.0, 1/4s, ISO:250', '../../photo/plaything.jpg', '960', '640', '2016-08-15', '10:10:45', '微笑的玩具，真可爱', '1', '');
+insert into photo values(0, 0, '小玩具', '相机', 'f/16.0, 1/4s, ISO:250', '../../photo/plaything.jpg', '960', '640', '2016-08-15', '10:10:45', '微笑的玩具，真可爱', '1', '');
+insert into photo values(0, 0, '小树', '手机', 'f/10.0, 1/125s, ISO:200', '../../photo/sapling.jpg', '960', '640', '2016-07-15', '10:09:45', '清晨的小树，在阳关的照射下，绿油油的', '1', '');
+insert into photo values(0, 0, '清晨', '手机', 'f/4.5, 1/2s, ISO:100', '../../photo/morning.jpg', '960', '720', '2016-07-15', '05:45:45', '海滩的清晨，太阳将冲出层层乌云，放出万丈光芒', '1', '');
+insert into photo values(0, 0, '小玩具', '相机', 'f/16.0, 1/4s, ISO:250', '../../photo/plaything.jpg', '960', '640', '2016-08-15', '10:10:45', '微笑的玩具，真可爱', '1', '');
+insert into photo values(0, 0, '小玩具', '相机', 'f/16.0, 1/4s, ISO:250', '../../photo/plaything.jpg', '960', '640', '2016-08-15', '10:10:45', '微笑的玩具，真可爱', '1', '');
+insert into photo values(0, 0, '小树', '手机', 'f/10.0, 1/125s, ISO:200', '../../photo/sapling.jpg', '960', '640', '2016-07-15', '10:09:45', '清晨的小树，在阳关的照射下，绿油油的', '1', '');
+insert into photo values(0, 0, '清晨', '手机', 'f/4.5, 1/2s, ISO:100', '../../photo/morning.jpg', '960', '720', '2016-07-15', '05:45:45', '海滩的清晨，太阳将冲出层层乌云，放出万丈光芒', '1', '');
+insert into photo values(0, 0, '小玩具', '相机', 'f/16.0, 1/4s, ISO:250', '../../photo/plaything.jpg', '960', '640', '2016-08-15', '10:10:45', '微笑的玩具，真可爱', '1', '');
+
+
+
+
+
+
+
 
 
 

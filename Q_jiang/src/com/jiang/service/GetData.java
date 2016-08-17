@@ -79,8 +79,13 @@ public interface GetData extends Serializable {
 	 */
 	public OutResults getStudyContent(String id) throws SQLException;
 	
-	
-	
-	
+	/**
+	 * 描述：获取照片
+	 * @author Q
+	 * @created 2016年8月15日 下午4:08:37
+	 * @since 
+	 * @return
+	 */
+	public OutResults getPhoto(String startPage) throws SQLException;
 
 }

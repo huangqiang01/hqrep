@@ -134,16 +134,16 @@ if (typeof jQuery === "undefined") {
 		
 		Qajax: function(param, success, aJson){
 			var ajaxP = {
-//				url: "/" + param.funNo + "?num=" + Math.random(), // 生产修改
-				url: "/Q_jiang/" + param.funNo + "?num=" + Math.random(), // 生产修改
+				url: "/" + param.funNo + "?num=" + Math.random(), // 生产修改
+//				url: "/Q_jiang/" + param.funNo + "?num=" + Math.random(), // 生产修改
 				async: true,
 				type: "post",
 				success: success,
 				data: param
 			};
-			var s = ajaxs;
-			var ss = $.extend(ajaxs, ajaxP);
-			var sss = $.extend(ajaxs, ajaxP, aJson);
+//			var s = ajaxs;
+//			var ss = $.extend(ajaxs, ajaxP);
+//			var sss = $.extend(ajaxs, ajaxP, aJson);
 			$.ajax($.extend(ajaxs, ajaxP, aJson));
 		},
 		

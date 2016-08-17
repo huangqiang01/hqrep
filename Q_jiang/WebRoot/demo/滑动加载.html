@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+		<title>滚动加载下一页案例</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			html, body {
+				width: 100%;
+				height: 100%;
+			}
+			
+			.column {
+				width: 100%;
+				height: 250px;
+				line-height: 250px;
+				font-size: 20px;
+				color: #fff;
+				text-align: center;
+			}
+			.column:nth-child(2n) {
+				background: #1FA2A9;
+			}
+			.column:nth-child(2n - 1) {
+				background: #357AE8;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="page"></div>
+	</body>
+	<script type="text/javascript" src="../js/dep/jquery-1.11.1.js" ></script>
+	<script>
+		"use strict";
+		
+		// 定义初始变量
+		var $window = $(window),
+			$page = $(".page"),
+			windowHeight = $window.height(),
+			pageHeight = windowHeight,
+			// 当前页, 默认为第一页
+			currentPage = 1;
+		
+		// 显示模拟接口数据
+		showDemo();
+		
+		// 捕获窗口滚动事件
+		$window.on("scroll", function(e){
+			console.log($(this).scrollTop());
+			if (pageHeight - windowHeight === $(this).scrollTop()){
+				currentPage++;
+				showDemo();
+			}
+			e.stopPropagation();
+		});
+		
+		/**
+		 * 显示数据
+		 * 
+		 */
+		function showDemo(){
+			var current = currentPage,
+				// 获取模拟接口数据
+				listStr = getDemoList(current);
+			 current > 1 ? $page.append(listStr) : $page.html(listStr);
+			 // 最新page 的高度
+			 pageHeight = $page.height();
+			 // 自动加载下一页
+			 if (pageHeight <= windowHeight){
+			 	currentPage++;
+				showDemo();
+			 }
+		}
+		
+		/**
+		 * 模拟接口数据
+		 */
+		function getDemoList(){
+			var str = "",
+				arr = ["1", "2", "3", "4", "5"];
+			// 当加载到第4页时，模拟全部数据加载完成
+			if (currentPage === 4){
+				arr = ["1", "2"];
+			}
+			var arrLength = arr.length;
+			// 返回数据为空或者小于设定的每页查询的条数
+			if (arrLength < 5){
+				// 移除相关事件
+				offBind();
+			}
+			for(var i = 0; i < arrLength; i++){
+				str += "<div class=\"column\">我是第 " + currentPage + " 页，第" + arr[i] + "条数据</div>";
+			}
+			return str;
+		}
+		
+		/**
+		 * 数据加载完成，移除相关事件
+		 */
+		function offBind(){
+			$window.off("scroll");
+		}
+		
+	</script>
+</html>

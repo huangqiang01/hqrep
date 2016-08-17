@@ -32,7 +32,25 @@
     <servlet-name>Servlet10102</servlet-name>
     <servlet-class>com.jiang.servlet.Servlet10102</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>Servlet10200</servlet-name>
+    <servlet-class>com.jiang.servlet.Servlet10200</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Servlet10300</servlet-name>
+    <servlet-class>com.jiang.servlet.Servlet10300</servlet-class>
+  </servlet>
   
+  
+  <servlet-mapping>
+    <servlet-name>Servlet10300</servlet-name>
+    <url-pattern>/10300</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet10200</servlet-name>
+    <url-pattern>/10200</url-pattern>
+  </servlet-mapping>
   
   <servlet-mapping>
     <servlet-name>Servlet10102</servlet-name>

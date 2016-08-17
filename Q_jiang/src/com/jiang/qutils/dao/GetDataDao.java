@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.jiang.bean.BannerImg;
 import com.jiang.bean.Evaluation;
+import com.jiang.bean.Photo;
 import com.jiang.bean.Presentations;
 import com.jiang.bean.StudyContent;
 import com.jiang.bean.StudyTitle;
@@ -226,9 +227,7 @@ public class GetDataDao {
 	 * @throws SQLException
 	 */
 	public OutResults getStudyContent(String id) throws SQLException{
-		id = "1";
 		String sql = "select textTital,releaseDate,zan,content,referencePoint from studyTitle as st inner join sContent as sc on st.id=sc.studyId where sc.id="+id+";";
-		System.out.println(sql);
 		dbh = new DBHelper(sql);
 		rs = dbh.pst.executeQuery();
 		StudyContent stContent;
@@ -238,7 +237,7 @@ public class GetDataDao {
 		while(rs.next()){
 			stContent = new StudyContent();
 			stContent.setTextTital(rs.getString("textTital"));
-			stContent.setReleaseDate(rs.getString("textTital"));
+			stContent.setReleaseDate(rs.getString("releaseDate"));
 			stContent.setZan(rs.getString("zan"));
 			stContent.setContent(rs.getString("content"));
 			stContent.setReferencePoint(rs.getString("referencePoint"));
@@ -248,18 +247,50 @@ public class GetDataDao {
 		return or;
 	}
 	
-	
+	/**
+	 * 描述：查询图片，并按时间排序
+	 * @author Q
+	 * @created 2016年8月16日 上午9:12:31
+	 * @since 
+	 * @return
+	 * @throws SQLException
+	 */
+	public OutResults getPhoto(String startPage) throws SQLException{
+		if (startPage == null || startPage.equals("")){
+			startPage = "1";
+		}
+		int start = Integer.parseInt(startPage);
+//		order by imgDate desc, imgTime desc
+		String sql = "select * from photo where isShow=1  limit "+((start - 1)*10)+", 10;";
+		dbh = new DBHelper(sql);
+		rs = dbh.pst.executeQuery();
+		Photo photo;
+		List list = new ArrayList();
+		OutResults or= new OutResults();
+		
+		while(rs.next()){
+			photo = new Photo();
+			photo.setImgName(rs.getString("imgName"));
+			photo.setShotTypes(rs.getString("shotTypes"));
+			photo.setImgInfo(rs.getString("imgInfo"));
+			photo.setImgUrl(rs.getString("imgUrl"));
+			photo.setImgWidth(rs.getString("imgWidth"));
+			photo.setImgHeight(rs.getString("imgHeight"));
+			photo.setImgDate(rs.getString("imgDate"));
+			photo.setImgTime(rs.getString("imgTime"));
+			photo.setIntroduce(rs.getString("introduce"));
+			list.add(photo);
+		}
+		or.setResults(list);
+		return or;
+	}
 	
 	public static void main(String[] args) {
 		try {
-			System.out.println(new GetDataDao().getStudyContent("1"));
+			System.out.println(new GetDataDao().getPhoto("2"));
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
-	
 }

@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 public class StudyTitle implements Serializable {
 	
-	
 	private String id;
 	private String classId;
 	private String seriesId;

@@ -231,16 +231,6 @@ body {
     -ms-transform: scale(0.3, 0.3) translate(2688px, -1085px);
   }
 }
-@-o-keyframes rthide {
-  50% {
-    opacity: 0.7;
-    -o-transform: scale(0.3, 0.3) rotate(360deg);
-  }
-  100% {
-    opacity: 0;
-    -o-transform: scale(0.3, 0.3) translate(2688px, -1085px);
-  }
-}
 @keyframes rthide {
   50% {
     opacity: 0.7;
@@ -390,41 +380,6 @@ body {
     -ms-transform: scale(1, 1) translate(0, 0);
   }
 }
-@-o-keyframes rtshow {
-  20% {
-    opacity: 0.4;
-    -o-transform: scale(0.3, 0.3) translate(-1900px, 0px);
-    -o-transform-timing-function: cubic-bezier(0.8, 0.24, 0.95, 0.59);
-  }
-  38% {
-    opacity: 0.6;
-    -o-transform: scale(0.3, 0.3) translate(-1188px, -800px);
-    -o-transform-timing-function: cubic-bezier(0.18, 0.68, 0.3, 0.95);
-  }
-  53% {
-    opacity: 0.7;
-    -o-transform: scale(0.3, 0.3) translate(-788px, 0px);
-    -o-transform-timing-function: cubic-bezier(0.8, 0.24, 0.95, 0.59);
-  }
-  65% {
-    opacity: 0.7;
-    -o-transform: scale(0.3, 0.3) translate(-488px, -435px);
-    -o-transform-timing-function: cubic-bezier(0.18, 0.68, 0.3, 0.95);
-  }
-  75% {
-    opacity: 0.7;
-    -o-transform: scale(0.3, 0.3) translate(0, 0);
-    -o-transform-timing-function: cubic-bezier(0.8, 0.24, 0.95, 0.59);
-  }
-  86% {
-    opacity: 0.7;
-    -o-transform: scale(0.3, 0.3) translate(0, 0);
-  }
-  100% {
-    opacity: 1;
-    -o-transform: scale(1, 1) translate(0, 0);
-  }
-}
 @keyframes rtshow {
   20% {
     opacity: 0.4;
@@ -517,7 +472,6 @@ body {
   font-size: 0.14rem;
 }
 .neirong {
-  margin-right: 470px;
   border: 1px solid #cccccc;
   -webkit-box-shadow: 0 0 10px #666666;
   -moz-box-shadow: 0 0 10px #666666;

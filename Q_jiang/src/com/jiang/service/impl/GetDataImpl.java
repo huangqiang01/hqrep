@@ -32,6 +32,10 @@ public class GetDataImpl implements GetData {
 
 	@Override
 	public OutResults getStudyTitle() throws SQLException {
+		System.out.println(getDataDao.getStudyTitle());
+		
+		
+		
 		return getDataDao.getStudyTitle();
 	}
 
@@ -43,5 +47,10 @@ public class GetDataImpl implements GetData {
 	@Override
 	public OutResults getStudyContent(String id) throws SQLException {
 		return getDataDao.getStudyContent(id);
+	}
+
+	@Override
+	public OutResults getPhoto(String startPage) throws SQLException {
+		return getDataDao.getPhoto(startPage);
 	}
 }
