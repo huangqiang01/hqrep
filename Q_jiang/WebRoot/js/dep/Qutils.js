@@ -134,21 +134,15 @@ if (typeof jQuery === "undefined") {
 		
 		Qajax: function(param, success, aJson){
 			var ajaxP = {
-				url: "/" + param.funNo + "?num=" + Math.random(), // 生产修改
-//				url: "/Q_jiang/" + param.funNo + "?num=" + Math.random(), // 生产修改
+//				url: "/" + param.funNo + "?num=" + Math.random(), // 生产修改
+				url: "/Q_jiang/" + param.funNo + "?num=" + Math.random(), // 生产修改
 				async: true,
 				type: "post",
 				success: success,
 				data: param
 			};
-//			var s = ajaxs;
-//			var ss = $.extend(ajaxs, ajaxP);
-//			var sss = $.extend(ajaxs, ajaxP, aJson);
 			$.ajax($.extend(ajaxs, ajaxP, aJson));
 		},
-		
-		
-		
 
 		/**
 		 * 获取当前时间，并将格式转化为yyyy-MM-dd DD:mm:ss
@@ -196,7 +190,18 @@ if (typeof jQuery === "undefined") {
 				}
 			}
 			return flag ? "pc" : "phone";
+		},
+		
+		/**
+		 * 懒加载图片
+		 */
+		lazyImg: function(){
+			
 		}
+		
+		
+		
+		
 	};
 
 	/**
@@ -223,7 +228,6 @@ if (typeof jQuery === "undefined") {
 		}
 		return assign_url;
 	}
-
 	//	function success(data){
 	//		alert(data);
 	//	}

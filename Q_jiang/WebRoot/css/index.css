@@ -1,4 +1,16 @@
 @charset "utf-8";
+@-webkit-keyframes name {
+  
+}
+@-moz-keyframes name {
+  
+}
+@-ms-keyframes name {
+  
+}
+@keyframes name {
+  
+}
 html,
 body {
   background: #f3f3f3;
@@ -97,11 +109,11 @@ body {
 .header ul li a:active {
   background: #ff6600;
   background: -webkit-gradient(linear, left top, left bottom, color-start(0.05, #ffa366), color-stop(1, #ff6600));
+  background: -webkit-linear-gradient(top, #ffa366 5%, #ff6600 100%);
   background: -moz-linear-gradient(top, #ffa366 5%, #ff6600 100%);
   background: -ms-linear-gradient(top, #ffa366 5%, #ff6600 100%);
   background: -o-linear-gradient(top, #ffa366 5%, #ff6600 100%);
   background: linear-gradient(to bottom, #ffa366 5%, #ff6600 100%);
-  background: -webkit-linear-gradient(top, #ffa366 5%, #ff6600 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffa366, endColorstr=#ff6600, GradientType=0);
 }
 .img {

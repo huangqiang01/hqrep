@@ -40,7 +40,61 @@
     <servlet-name>Servlet10300</servlet-name>
     <servlet-class>com.jiang.servlet.Servlet10300</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>Servlet11000</servlet-name>
+    <servlet-class>com.jiang.servlet.Servlet11000</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Servlet11001</servlet-name>
+    <servlet-class>com.jiang.servlet.Servlet11001</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Servlet20000</servlet-name>
+    <servlet-class>com.jiang.servlet.Servlet20000</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Servlet20001</servlet-name>
+    <servlet-class>com.jiang.servlet.Servlet20001</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Servlet20002</servlet-name>
+    <servlet-class>com.jiang.servlet.Servlet20002</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Servlet20003</servlet-name>
+    <servlet-class>com.jiang.servlet.Servlet20003</servlet-class>
+  </servlet>
   
+  
+  <servlet-mapping>
+    <servlet-name>Servlet20003</servlet-name>
+    <url-pattern>/20003</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet20002</servlet-name>
+    <url-pattern>/20002</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet20001</servlet-name>
+    <url-pattern>/20001</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet20000</servlet-name>
+    <url-pattern>/20000</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet11001</servlet-name>
+    <url-pattern>/11001</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet11000</servlet-name>
+    <url-pattern>/11000</url-pattern>
+  </servlet-mapping>
   
   <servlet-mapping>
     <servlet-name>Servlet10300</servlet-name>
